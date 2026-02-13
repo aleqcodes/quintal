@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quintal Agrias - Escola Viva | Educação Infantil Humanizada em Manaus</title>
+    <meta name="description"
+        content="Quintal Agrias - Escola Viva: educação infantil em Manaus com foco em amor, respeito, natureza e desenvolvimento integral da criança.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo.png" type="image/png">
+
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Tailwind Config for Custom Colors/Fonts to match styles.css variables (optional but helpful) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#FBBF24',
+                        accent: '#F43F5E',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-light text-dark font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="Logo Quintal Agrias"
+                    class="h-10 w-10 object-contain transition-transform group-hover:rotate-12">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl text-primary leading-none">Quintal Agrias</span>
+                    <span class="text-xs text-gray-500 font-medium tracking-wide">Escola Viva</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="sobre.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Sobre</a>
+                <a href="pedagogia.html"
+                    class="text-gray-600 hover:text-primary font-medium transition-colors">Pedagogia</a>
+                <a href="dia-a-dia.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dia a
+                    Dia</a>
+                <a href="galeria.html"
+                    class="text-gray-600 hover:text-primary font-medium transition-colors">Galeria</a>
+                <a href="contato.html"
+                    class="px-5 py-2 rounded-full bg-accent text-white font-bold shadow-md hover:bg-accent-dark transition-all hover:-translate-y-0.5">
+                    Fale Conosco
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+            <div class="flex flex-col p-4 gap-4">
+                <a href="sobre.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Sobre</a>
+                <a href="pedagogia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Pedagogia</a>
+                <a href="dia-a-dia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Dia a Dia</a>
+                <a href="galeria.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Galeria</a>
+                <a href="contato.html"
+                    class="w-full text-center px-5 py-3 rounded-xl bg-accent text-white font-bold shadow-sm">
+                    Fale Conosco link
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Parallax Effect -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/quintal-escola-vegetacao-tropical.jpg" alt="Quintal Agrias"
+                class="w-full h-full object-cover object-center brightness-75 scale-105 animate-pulse-slow">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/30 via-dark/20 to-light"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-4 text-center mt-16">
+            <span
+                class="inline-block px-4 py-1 mb-4 rounded-full bg-secondary/90 text-white text-sm font-bold tracking-wider uppercase shadow-sm scroll-reveal">Educação
+                com Amor</span>
+            <h1
+                class="font-display text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-md leading-tight scroll-reveal delay-100">
+                Quintal Agrias <br />
+                <span class="text-secondary drop-shadow-sm">Escola Viva</span>
+            </h1>
+            <p
+                class="text-white text-lg md:text-2xl max-w-2xl mx-auto mb-10 opacity-95 font-light leading-relaxed scroll-reveal delay-200">
+                Um espaço de <b class="text-secondary font-semibold">afeto</b>, <b
+                    class="text-primary font-semibold">natureza</b> e <b
+                    class="text-accent font-semibold">descobertas</b> para o desenvolvimento integral do seu filho.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center scroll-reveal delay-300">
+                <a href="sobre.html" class="btn-primary">
+                    Conheça Nossa Escola <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                </a>
+                <a href="https://wa.me/5592982559539" target="_blank"
+                    class="px-8 py-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 text-white font-bold hover:bg-white hover:text-primary transition-all duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i> Agende uma Visita
+                </a>
+            </div>
+        </div>
+
+        <!-- Wave Separator -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-[60px] md:h-[100px]" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="fill-light"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Pillars Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 max-w-3xl mx-auto scroll-reveal">
+                <h2 class="font-display text-4xl font-bold text-dark mb-4">Nossos Pilares</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Sustentamos nossa prática pedagógica em quatro bases essenciais que garantem um aprendizado
+                    significativo e feliz.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Autonomia -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-50 text-center card-hover scroll-reveal delay-100">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 text-3xl shadow-sm">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-3">Autonomia</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Incentivamos a independência e a tomada de decisões
+                        desde cedo.</p>
+                </div>
+
+                <!-- Afetividade -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-50 text-center card-hover scroll-reveal delay-200">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-rose-100 rounded-full flex items-center justify-center text-accent text-3xl shadow-sm">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-3">Afetividade</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">O vínculo amoroso é a base para todo aprendizado
+                        seguro.</p>
+                </div>
+
+                <!-- Natureza -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-50 text-center card-hover scroll-reveal delay-300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-emerald-100 rounded-full flex items-center justify-center text-primary text-3xl shadow-sm">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-3">Natureza</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">A terra, as plantas e o ar livre são nossa
+                        principal sala de aula.</p>
+                </div>
+
+                <!-- Interação -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-50 text-center card-hover scroll-reveal delay-400">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-amber-100 rounded-full flex items-center justify-center text-secondary text-3xl shadow-sm">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-3">Interação Social</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Aprender a conviver, respeitar e compartilhar com o
+                        grupo.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 scroll-reveal">
+                <a href="pedagogia.html"
+                    class="inline-flex items-center text-primary font-bold hover:text-primary-dark transition-colors border-b-2 border-primary/20 hover:border-primary pb-1">
+                    Saiba mais sobre nossa pedagogia <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Grid -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dia a Dia Card -->
+                <a href="dia-a-dia.html"
+                    class="group relative overflow-hidden rounded-3xl shadow-md h-64 md:h-80 scroll-reveal cursor-pointer">
+                    <img src="assets/area-recreacao-tanque-areia-criancas.jpg" alt="Dia a Dia"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div
+                            class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white mb-4 group-hover:bg-primary transition-colors">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3
+                            class="font-display text-2xl font-bold text-white mb-1 group-hover:text-secondary transition-colors">
+                            Dia a Dia</h3>
+                        <p class="text-white/80 text-sm font-light">Horários, rotina e informações para pais.</p>
+                    </div>
+                </a>
+
+                <!-- Galeria Card -->
+                <a href="galeria.html"
+                    class="group relative overflow-hidden rounded-3xl shadow-md h-64 md:h-80 scroll-reveal delay-100 cursor-pointer">
+                    <img src="assets/atividade-pintura-maos-crianca.jpg" alt="Galeria"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div
+                            class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white mb-4 group-hover:bg-accent transition-colors">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3
+                            class="font-display text-2xl font-bold text-white mb-1 group-hover:text-secondary transition-colors">
+                            Galeria</h3>
+                        <p class="text-white/80 text-sm font-light">Momentos especiais e nossas atividades.</p>
+                    </div>
+                </a>
+
+                <!-- Contato Card -->
+                <a href="contato.html"
+                    class="group relative overflow-hidden rounded-3xl shadow-md h-64 md:h-80 scroll-reveal delay-200 cursor-pointer lg:col-span-1 md:col-span-2">
+                    <img src="assets/escada-madeira-flores-roxas-jardim.jpg" alt="Contato"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div
+                            class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white mb-4 group-hover:bg-secondary transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3
+                            class="font-display text-2xl font-bold text-white mb-1 group-hover:text-secondary transition-colors">
+                            Fale Conosco</h3>
+                        <p class="text-white/80 text-sm font-light">Agende sua visita e venha nos conhecer.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-24 bg-primary relative overflow-hidden text-center text-white">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('assets/pattern.png')]"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl scroll-reveal">
+            <i class="fas fa-quote-left text-4xl text-white/30 mb-6 block"></i>
+            <blockquote class="font-display text-2xl md:text-4xl font-bold leading-tight mb-8">
+                "A infância é o chão sobre o qual caminharemos pelo resto de nossas vidas"
+            </blockquote>
+            <cite class="text-lg md:text-xl font-light not-italic opacity-90">— Lya Luft</cite>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <img src="assets/logo.png" alt="Logo"
+                            class="h-12 w-12 object-contain brightness-0 invert opacity-80">
+                        <span class="font-display font-bold text-2xl">Quintal Agrias</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+                        Escola Viva. Um espaço dedicado ao desenvolvimento integral e feliz de cada criança.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div class="text-center">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Navegação</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="pedagogia.html" class="hover:text-white transition-colors">Nossa Pedagogia</a></li>
+                        <li><a href="dia-a-dia.html" class="hover:text-white transition-colors">Dia a Dia</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div class="text-center md:text-right">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Siga-nos</h4>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/quintalagrias" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+                <p>&copy; 2024 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quintal Agrias - Escola Viva | Educação Restauradora e Integradora em Manaus</title>
+    <meta name="description" content="Quintal Agrias - Escola Viva: educação infantil em Manaus com foco em amor, respeito, sustentabilidade, criatividade e integralidade. Transformando o mundo através da educação para a paz para crianças de 1 ano e meio a 5 anos e 11 meses.">
+    <meta name="keywords" content="educação infantil manaus, escola viva manaus, quintal agrias, educação restauradora, educação integradora, escola sustentável, educação para a paz, pré-escola manaus, borboleta agrias, manaus am, educação emocional, livre brincar, princípios de convivência, normas escolares, matrícula, horários">
+    <meta name="author" content="Quintal Agrias">
+    <link rel="canonical" href="https://www.quintalagrias.com.br/"> <!-- Substituir pela URL real do seu site -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo.png" type="image/png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter para o corpo do texto e Lora para títulos para um toque elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Configuração personalizada do Tailwind para fontes e cores */
+        :root {
+            --color-secondary-yellow: #FFD700; /* Dourado - Amarelo vibrante da imagem */
+            --color-vibrant-red: #FF4D6D; /* Vermelho/Rosa vibrante da imagem */
+            --color-dark-blue: #0A2342; /* Azul escuro da imagem */
+            --color-text-dark: #333333;
+            --color-text-light: #F8F8F8;
+            --color-bg-light: #F0F8FF; /* AliceBlue - Um fundo claro e suave */
+            --color-bg-medium: #E0E8F0; /* Um fundo claro ligeiramente mais escuro */
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-lora {
+            font-family: 'Lora', serif;
+        }
+
+        .bg-secondary-yellow { background-color: var(--color-secondary-yellow); }
+        .text-secondary-yellow { color: var(--color-secondary-yellow); }
+
+        .bg-vibrant-red { background-color: var(--color-vibrant-red); }
+        .text-vibrant-red { color: var(--color-vibrant-red); }
+
+        .bg-dark-blue { background-color: var(--color-dark-blue); }
+        .text-dark-blue { color: var(--color-dark-blue); }
+
+        .text-dark { color: var(--color-text-dark); }
+        .text-light { color: var(--color-text-light); }
+        .bg-light { background-color: var(--color-bg-light); }
+        .bg-medium { background-color: var(--color-bg-medium); }
+
+        /* Animação para elementos que aparecem ao rolar */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo para links de navegação suaves */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Estilo para detalhes/sumário (acordeão) */
+        details {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1.5rem; /* p-6 */
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: var(--color-dark-blue);
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        summary:hover {
+            background-color: var(--color-bg-medium);
+        }
+
+        details[open] summary {
+            background-color: var(--color-bg-medium);
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+
+
+        .details-content {
+            padding: 1.5rem;
+            padding-top: 0;
+            line-height: 1.75; /* leading-relaxed */
+            color: var(--color-text-dark);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--color-vibrant-red);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background-color: var(--color-vibrant-red);
+            color: white;
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                font-size: 24px;
+                padding: 8px;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+            
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-light antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center space-x-2">
+                <img src="assets/logo.png" alt="Logo Quintal Agrias" class="h-10 w-10 object-contain">
+                <span class="font-lora text-2xl font-bold text-dark-blue">Quintal Agrias</span>
+                <span class="font-inter text-lg text-dark-blue hidden md:block">Escola Viva</span>
+            </a>
+
+            <!-- Menu de Navegação (Desktop) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#nosso-quintal" class="text-dark hover:text-vibrant-red font-medium transition duration-300">Nosso Quintal</a>
+                <a href="#o-que-oferecemos" class="text-dark hover:text-vibrant-red font-medium transition duration-300">O Que Oferecemos</a>
+                <a href="#nossa-equipe" class="text-dark hover:text-vibrant-red font-medium transition duration-300">Nossa Equipe</a>
+                <a href="#principios-convivencia" class="text-dark hover:text-vibrant-red font-medium transition duration-300">Princípios de Convivência</a>
+                <a href="#galeria" class="text-dark hover:text-vibrant-red font-medium transition duration-300">Galeria</a>
+                <a href="#contato" class="text-dark hover:text-vibrant-red font-medium transition duration-300">Contato</a>
+            </nav>
+
+            <!-- Botão do Menu Mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-dark-blue focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile (oculto por padrão) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-lg">
+            <a href="#nosso-quintal" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Nosso Quintal</a>
+            <a href="#o-que-oferecemos" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">O Que Oferecemos</a>
+            <a href="#nossa-equipe" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Nossa Equipe</a>
+            <a href="#principios-convivencia" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Princípios de Convivência</a>
+            <a href="#galeria" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Galeria</a>
+            <a href="#contato" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative bg-cover bg-center h-screen flex items-center justify-center text-center p-4"
+            style="background-image: url('assets/quintal-escola-vegetacao-tropical.jpg');">
+            <div class="absolute inset-0 bg-dark-blue opacity-50"></div>
+            <div class="relative z-10 text-light max-w-4xl mx-auto scroll-reveal">
+                <h1 class="font-lora text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-lg">
+                    Quintal Agrias <br class="sm:hidden"> <span class="text-secondary-yellow">Escola Viva</span>
+                </h1>
+                <p class="font-inter text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-md">
+                    Priorizamos o amor e o respeito às crianças e a todos os seres, a sustentabilidade, criatividade e integralidade.
+                </p>
+                <a href="#nosso-quintal" class="inline-block bg-vibrant-red text-light font-bold py-3 px-8 rounded-full text-lg hover:bg-dark-blue transition duration-300 transform hover:scale-105 shadow-lg">
+                    Conheça nosso quintal
+                </a>
+            </div>
+        </section>
+
+        <!-- Nosso Quintal Section -->
+        <section id="nosso-quintal" class="py-16 md:py-24 bg-gradient-to-br from-secondary-yellow to-yellow-300">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-dark-blue mb-12 scroll-reveal">Nosso Quintal</h2>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-reveal">
+                        <p class="text-lg leading-relaxed mb-6">
+                            <strong class="text-vibrant-red">Priorizamos a autonomia, afetividade, as interação social e o contato direto com a natureza.</strong>
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            <strong class="text-vibrant-red">Autonomia, Afetividade, Contato com a Natureza e Interação Social</strong> são os 4 pilares que sustentam a nossa proposta educacional visando um desenvolvimento integral da criança.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            Somos uma escola de Educação Infantil com uma pedagogia autônoma inspirada nas propostas das pedagogias ativas, modelos que validam o Livre brincar, documentos que regulamentam a educação infantil em nível nacional, – BNCC - Base Nacional Comum Curricular e municipal, RCA – Referencial Curricular Amazonense, além de propostas que validam o ser criança e todas as suas particularidades e ações genuínas.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            Nossa proposta entende e valida a criança como um indivíduo pleno e multidimensional e utiliza a observação atenta como intenção pedagógica, tanto de reconhecer competências e valorizar as múltiplas linguagens da infância, quanto de transformar, como a pedagogia Waldorf, o método Montessori, as escolas de Reggio Emillia e diversos cientistas que pesquisam incansavelmente sobre desenvolvimento infantil.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            A nossa proposta educativa inovadora está intimamente alinhada à escuta e ao reconhecimento das múltiplas potencialidades de cada criança/estudante que deve ser observada e entendida cada uma na sua individualidade.
+                        </p>
+                    </div>
+                    <div class="scroll-reveal">
+                        <img src="assets/criancas-subindo-arvore-quintal.jpg" alt="Crianças brincando no Quintal Agrias" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <!-- Highlighted Quote -->
+                <div class="mt-16 md:mt-20 p-8 bg-medium rounded-xl shadow-md text-center scroll-reveal">
+                    <blockquote class="text-2xl italic font-semibold text-dark-blue">
+                        "A infância é o chão sobre o qual caminharemos pelo resto de nossas vidas"
+                        <footer class="text-lg mt-2 text-vibrant-red">Lya Luft</footer>
+                    </blockquote>
+                </div>
+
+                <div class="mt-16 md:mt-24 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-reveal order-2 md:order-1">
+                        <img src="assets/decoracao-infantil-cata-vento-agria.jpg" alt="Borboleta Agrias Narcissus" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                    <div class="scroll-reveal order-1 md:order-2">
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Agrias</h3>
+                        <p class="text-lg leading-relaxed mb-6">
+                            <strong class="text-dark-blue">Agrias Narcissus</strong> é uma espécie de borboletas que aparece apenas em ecossistemas extremamente preservados em cinco localidades dos Estados do Amazonas, Amapá e Pará. As borboletas revelam o nível de qualidade ambiental local e por isso é associada à transformação e à restauração da sustentabilidade e qualidade do meio ambiente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Seção dos 4 Pilares Educacionais -->
+                <div class="mt-16 md:mt-24">
+                    <h3 class="font-lora text-3xl font-bold text-center text-dark-blue mb-12 scroll-reveal">Nossos 4 Pilares Educacionais</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="p-6 bg-medium rounded-xl shadow-md text-center scroll-reveal">
+                            <i class="fas fa-child text-4xl text-vibrant-red mb-4"></i>
+                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Autonomia</h4>
+                            <p class="text-md">Processo gradual e essencial para potencializar o desenvolvimento das habilidades emocionais, motoras, sociais e cognitivas. A criança se desenvolve naturalmente quando está em contato com um ambiente rico em estímulos.</p>
+                        </div>
+                        <div class="p-6 bg-medium rounded-xl shadow-md text-center scroll-reveal" data-delay="100">
+                            <i class="fas fa-heart text-4xl text-vibrant-red mb-4"></i>
+                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Afetividade</h4>
+                            <p class="text-md">O afeto, respeito, temperança, gratidão, solidariedade são valores praticados todos os dias pela equipe de guardiãs para favorecer a formação de um ser humano autêntico, respeitoso que leve para sua vida memórias afetivas de uma cultura de paz.</p>
+                        </div>
+                        <div class="p-6 bg-medium rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
+                            <i class="fas fa-leaf text-4xl text-vibrant-red mb-4"></i>
+                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Contato com a Natureza</h4>
+                            <p class="text-md">Na educação infantil a nossa sala de aula principal é um Quintal lindo cercado de natureza e cheio de oportunidades para desenvolver a experimentação autônoma através do Livre brincar.</p>
+                        </div>
+                        <div class="p-6 bg-medium rounded-xl shadow-md text-center scroll-reveal" data-delay="300">
+                            <i class="fas fa-users text-4xl text-vibrant-red mb-4"></i>
+                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Interação Social</h4>
+                            <p class="text-md">Aspecto essencial para o desenvolvimento saudável das crianças. As interações sociais positivas proporcionam oportunidades para as crianças aprenderem habilidades de comunicação, regulação emocional e como construir relacionamentos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 md:mt-24 grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal">
+                        <i class="fas fa-seedling text-4xl text-vibrant-red mb-4"></i>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Missão</h3>
+                        <p class="text-lg">Missão educacional focada na transformação mundial através de uma abordagem holística que integra corpo, mente, emoção e espírito. Busca desenvolver o autoconhecimento e a observação interna nas crianças, promovendo expressão emocional e espiritual baseada em amor, verdade e sabedoria. O objetivo central é educar para a paz.</p>
+                    </div>
+                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal" data-delay="100">
+                        <i class="fas fa-globe-americas text-4xl text-vibrant-red mb-4"></i>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Visão</h3>
+                        <p class="text-lg">Contribuir para a profunda transformação e revolução da educação, cultura e sociedade que já está acontecendo a nível mundial.</p>
+                    </div>
+                    <div class="p-8 bg-medium rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
+                        <i class="fas fa-hand-holding-heart text-4xl text-vibrant-red mb-4"></i>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Nossos princípios são:</h3>
+                        <ul class="list-disc list-inside text-left text-lg space-y-2">
+                            <li>A família</li>
+                            <li>O “Olhar para dentro”</li>
+                            <li>A harmonia através do silêncio</li>
+                            <li>A expressão</li>
+                            <li>A simplicidade</li>
+                            <li>A Consciência Corporal</li>
+                            <li>O Contato com a terra e respeito a todos os seres</li>
+                            <li><strong class="text-vibrant-red">Protagonismo Infantil</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O Que Oferecemos Section -->
+        <section id="o-que-oferecemos" class="py-16 md:py-24 bg-gradient-to-br from-red-700 to-red-900">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">O Que Oferecemos</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
+                    A nossa identidade é ancorada no <strong class="text-yellow-200">Livre Brincar</strong> que se configura como a forma de comunicação genuína de todas as crianças. Propomos uma nova educação: Um ser humano capaz de se sentir responsável por tudo ao seu redor. Nossas atividades e currículo são baseados em três grandes eixos de atuação: dimensão emocional e afetiva, dimensão espiritual e dimensão física e cognitiva.
+                </p>
+                
+                <div class="p-6 bg-medium rounded-xl shadow-md text-center mb-12 max-w-3xl mx-auto scroll-reveal">
+                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-3">Venha fazer parte da nossa história!</h3>
+                    <p class="text-lg">Seu filho estará em um ambiente que respeita, valoriza e promove o desenvolvimento da infância integralmente.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1: Artes e Criatividade -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal">
+                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                            <img src="assets/atividade-pintura-maos-crianca.jpg" alt="Atividade de pintura" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Artes e Criatividade</h3>
+                        <p class="text-md">Ensinamos arte para as crianças através de aulas de música e arte circense, estimulando a expressão e a imaginação.</p>
+                    </div>
+
+                    <!-- Card 2: Natureza -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="100">
+                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                            <img src="assets/decoracao-infantil-cata-vento-horta.jpg" alt="Horta com decoração infantil" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Natureza</h3>
+                        <p class="text-md">Além das aulas de horta e capinagem, oferecemos alimentação saudável para desde cedo as crianças criarem uma relação de respeito à natureza.</p>
+                    </div>
+
+                    <!-- Card 3: Brincar Livremente -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
+                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                            <img src="assets/playground-pneus-criancas-brincando.jpg" alt="Crianças brincando no playground" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Brincar Livremente</h3>
+                        <p class="text-md">Acreditamos que um ambiente harmonioso e agradável incentiva a criança a viver sua experiência escolar como um verdadeiro prazer.</p>
+                    </div>
+
+                    <!-- Card 4: Educação Emocional -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="300">
+                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                            <img src="assets/educacao-ambiental-grupo-criancas.jpg" alt="Educação ambiental" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Educação Emocional</h3>
+                        <p class="text-md">Ajudamos no processo de desenvolvimento das habilidades de relacionamento interpessoal, potencial físico e cognitivo das crianças.</p>
+                    </div>
+                </div>
+
+                <!-- Atividades em Destaque -->
+                <div class="mt-16">
+                    <h3 class="font-lora text-3xl font-bold text-center text-white mb-12 scroll-reveal">Atividades em Destaque</h3>
+                    <div class="p-8 bg-medium rounded-xl shadow-md text-center mb-12 max-w-4xl mx-auto scroll-reveal">
+                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Idades que o Quintal Agrias atende!</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mt-6">
+                        <div>
+                            <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3">Estação Baby</h4>
+                            <ul class="list-none text-left text-lg space-y-2">
+                                <li><strong>Sala Minhoquinha</strong><br>De 5 meses a 1 ano e 3 meses</li>
+                                <li><strong>Sala Joaninha</strong><br>1 ano e 4 meses a 1 ano e 11 meses</li>
+                                <li><strong>Sala Jabuti</strong><br>2 anos a 2 anos e 11 meses</li>
+                                <li><strong>Sala Coelho</strong><br>3 anos a 3 anos e 11 meses</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3">Estação Kids</h4>
+                            <ul class="list-none text-left text-lg space-y-2">
+                                <li><strong>Sala Formiga</strong><br>4 anos e 4 anos e 11 meses</li>
+                                <li><strong>Sala Lagarta</strong><br>5 anos a 5 anos e 11 meses</li>
+                            </ul>
+                            
+                            <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3 mt-6">Estação Casulo Alfabetização</h4>
+                            <ul class="list-none text-left text-lg space-y-2">
+                                <li><strong>1º ano</strong> – Borboleta Azul</li>
+                                <li><strong>2º ano</strong> – Borboleta Monarca</li>
+                            </ul>
+                            
+                            <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3 mt-6">Estação Casulo Letramento</h4>
+                            <ul class="list-none text-left text-lg space-y-2">
+                                <li><strong>3º ano</strong> – Borboleta Esmeralda</li>
+                                <li><strong>4º ano</strong> – Borboleta Manacá</li>
+                                <li><strong>5º ano</strong> – Borboleta Agrias</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Inglês -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal">
+                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                            <img src="assets/criancas-pintando-papel-amarelo-sala.jpg" alt="Aula de inglês" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-lora text-xl font-semibold text-dark-blue mb-4">Inglês</h4>
+                        <p class="text-md">Introdução lúdica ao idioma inglês através de jogos, músicas e atividades interativas que despertam o interesse natural das crianças pelo aprendizado de uma segunda língua.</p>
+                    </div>
+
+                        <!-- Musicalização -->
+                        <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="100">
+                            <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                                <img src="assets/oficina-pintura-infantil-ao-ar-livre.jpg" alt="Musicalização" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-4">Musicalização</h4>
+                            <p class="text-md">Desenvolvimento da sensibilidade musical através de instrumentos, canções e ritmos que estimulam a coordenação motora e a expressão artística das crianças.</p>
+                        </div>
+
+                        <!-- Atividades Motoras -->
+                        <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
+                            <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
+                                <img src="assets/crianca-escalada-brinquedo-madeira.jpg" alt="Atividades motoras" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-4">Atividades Motoras</h4>
+                            <p class="text-md">Exercícios e brincadeiras que promovem o desenvolvimento da coordenação motora grossa e fina, equilíbrio e consciência corporal através de movimentos naturais e divertidos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sala de Aula e Livre Brincar Section -->
+        <section id="sala-aula-livre-brincar" class="py-16 md:py-24 bg-gradient-to-br from-blue-400 to-blue-600">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Sala de Aula e Livre Brincar</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="scroll-reveal">
+                        <h3 class="font-lora text-2xl font-semibold text-white mb-4">Sala de Aula</h3>
+                        <p class="text-lg leading-relaxed mb-6 text-white">
+                            Na educação infantil a nossa sala de aula principal é um <strong class="text-yellow-200">Quintal lindo cercado de natureza</strong> e cheio de oportunidades para desenvolver a experimentação autônoma através do Livre brincar e das propostas pedagógicas do cotidiano.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6 text-white">
+                            No Ensino Fundamental as salas são organizadas por área do conhecimento. A partir da sala Casulo que reúne todas as turmas, cada turma com seu professor se dirige ao laboratório do conhecimento guiado por sua rotina visual. Após o término, trocam as salas de acordo com a aula.
+                        </p>
+                        <p class="text-lg leading-relaxed text-white">
+                            Os laboratórios são verdadeiras imersões em cada área de conhecimento, as crianças têm a oportunidade de vivenciarem os temas através de construções dentro dos laboratórios ou podem fazer experimentos na área externa.
+                        </p>
+                    </div>
+                    <div class="scroll-reveal">
+                        <img src="assets/area-recreacao-tanque-areia-criancas.jpg" alt="Área de recreação com tanque de areia" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-reveal order-2 md:order-1">
+                        <img src="assets/brincadeira-areia-recreacao-infantil.jpg" alt="Crianças brincando na areia" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                    <div class="scroll-reveal order-1 md:order-2">
+                        <h3 class="font-lora text-2xl font-semibold text-white mb-4">Livre Brincar</h3>
+                        <p class="text-lg leading-relaxed mb-6 text-white">
+                            Olhamos para o brincar como algo essencial à infância e, portanto, todas as propostas pedagógicas do cotidiano são ofertadas através de <strong class="text-yellow-200">vivências lúdicas e envolventes</strong> onde a criança sente prazer em participar.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6 text-white">
+                            As ofertas acontecem no Quintal embaixo das árvores, sentados em círculos na areia ou simplesmente permitindo que busquem criar as suas próprias brincadeiras livres usando todo o ambiente que já é uma riqueza em estímulos sensoriais diversos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Afetividade, Autonomia e Interação Social Section -->
+        <section id="afetividade-autonomia-interacao" class="py-16 md:py-24 bg-gradient-to-br from-purple-600 to-pink-600">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Afetividade, Autonomia e Interação Social</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Afetividade -->
+                    <div class="bg-white rounded-xl p-8 shadow-lg scroll-reveal">
+                        <div class="w-16 h-16 bg-vibrant-red rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-heart text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4 text-center">Afetividade</h3>
+                        <p class="text-lg leading-relaxed text-center">
+                            O afeto, respeito, temperança, gratidão, solidariedade são valores praticados todos os dias pela equipe de guardiãs para favorecer a formação de um ser humano autêntico, respeitoso que leve para sua vida memórias afetivas de uma cultura de paz.
+                        </p>
+                    </div>
+
+                    <!-- Autonomia -->
+                    <div class="bg-white rounded-xl p-8 shadow-lg scroll-reveal">
+                        <div class="w-16 h-16 bg-vibrant-red rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-child text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4 text-center">Autonomia</h3>
+                        <p class="text-lg leading-relaxed text-center mb-4">
+                            Processo gradual e essencial para potencializar o desenvolvimento das habilidades emocionais, motoras, sociais e cognitivas. A criança se desenvolve naturalmente, mas quando está em contato com um ambiente rico em estímulos o seu desenvolvimento integral acontece de forma natural e funcional.
+                        </p>
+                        <p class="text-lg leading-relaxed text-center">
+                            Aqui no quintal olhamos para a autonomia como destrave para busca de novas possibilidades para a criança desenvolver mais segurança, seja percebendo que já é capaz de brincar sozinho, em pares, construindo algo atrativo para interação, transportando sua bolsa, cuidando dos seus pertences. A construção da autonomia produz mais segurança para novas descobertas.
+                        </p>
+                    </div>
+
+                    <!-- Interação Social -->
+                    <div class="bg-white rounded-xl p-8 shadow-lg scroll-reveal">
+                        <div class="w-16 h-16 bg-vibrant-red rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4 text-center">Interação Social</h3>
+                        <p class="text-lg leading-relaxed text-center">
+                            Olhamos para esse pilar como um aspecto essencial para o desenvolvimento saudável das crianças. As interações sociais positivas proporcionam oportunidades para as crianças aprenderem habilidades de comunicação, regulação emocional e como construir relacionamentos, além de encorajá-las a desenvolver a cooperação, compartilhar, resolver conflitos e gerenciar as suas emoções.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossa Equipe Section -->
+        <section id="nossa-equipe" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-dark-blue mb-12 scroll-reveal">Nossa Equipe</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal">
+                    O Quintal Agrias prima por garantir a segurança, a serenidade e o exercício da sabedoria em todos os aspectos institucionais, relacionais e pedagógicos da escola. Conheça os responsáveis pela orientação pedagógica e bem-estar de nossos alunos:
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal">
+                        <i class="fas fa-user-tie text-4xl text-dark-blue mb-4"></i>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Gestão/Direção</h3>
+                        <p class="text-lg font-medium text-vibrant-red">Maria do Socorro Oliveira de Carvalho</p>
+                        <p class="text-md mt-2">Inspiradora do Projeto Agrias.<br>Mãe, esposa e avó da Luna.<br>Psicóloga Clínica Infantil<br>Esp. Psicopatologia clínica, Neuropsicopedagogia clínica e institucional, Educação Especial Inclusiva, Desenvolvimento Infantil.<br><br>Prioriza a gestão participativa valorizando as diferentes perspectivas de educação em nível mundial.<br><br>Responsável por planejar, organizar, orientar, dirigir esforços e recursos humanos e materiais, administrar os projetos específicos da escola para alcançar os objetivos de forma eficiente e eficaz.</p>
+                    </div>
+                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal" data-delay="100">
+                        <i class="fas fa-chalkboard-teacher text-4xl text-dark-blue mb-4"></i>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Supervisão Pedagógica Geral</h3>
+                        <p class="text-lg font-medium text-vibrant-red">Juliana Davim</p>
+                        <p class="text-md mt-2">Pedagoga, Neuropsicopedagoga. Responsável pelo desenvolvimento pessoal de cada criança e professora, oferecendo orientação e assistência à sua formação como ser humano.</p>
+                    </div>
+                    <div class="p-8 bg-medium rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
+                        <i class="fas fa-apple-alt text-4xl text-dark-blue mb-4"></i>
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Nutricionista</h3>
+                        <p class="text-lg font-medium text-vibrant-red">Dra. Ana Rita</p>
+                        <p class="text-md mt-2">Nutricionista materno infantil, Doutora em biotecnologia aplicada a saúde, CRN 4733. Responsável pela elaboração e acompanhamento do cardápio e avaliação nutricional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Princípios e Normas de Convivência Section -->
+        <section id="principios-convivencia" class="py-16 md:py-24 bg-gradient-to-br from-green-400 to-emerald-500">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Princípios e Normas de Convivência</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
+                    Nosso Guia de Princípios e Normas de Convivência apresenta pontos de relevância sobre o ritmo e as atividades desenvolvidas diariamente no Quintal Agrias para o crescimento e o bom desenvolvimento das crianças de forma integral. A leitura deste guia é fundamental para pais e responsáveis.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Horário de Funcionamento -->
+                    <details class="scroll-reveal">
+                        <summary>Horário de Funcionamento</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Manhã Ensino Infantil</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 07h:30</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 30 min (até 08h:00), após este horário entrada somente com justificativa médica.</li>
+                                <li>Início do processo de saída: 13h:15</li>
+                                <li>Término das atividades: 13h:30</li>
+                                <li>Tolerância para saída: 15 min (até 13h:45).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Tarde Ensino Infantil</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 13h:30</li>
+                                <li>Portão para recepção: 13h:15</li>
+                                <li>Tolerância para chegada: 30 min (até 14h:00), após este horário entrada somente com justificativa médica.</li>
+                                <li>Início do processo de saída: 17h:15</li>
+                                <li>Término das atividades: 17h:30</li>
+                                <li>Tolerância para saída: 15 min (até 17h:45).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Integral Ensino Infantil</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 07h:30</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 30 min (até 08h:00), após este horário entrada somente com justificativa médica.</li>
+                                <li>Início do processo de saída: 16h:15</li>
+                                <li>Término das atividades: 16h:30</li>
+                                <li>Tolerância para saída: 15 min (até 16h:45).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Matutino Ensino Fundamental</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 08h:00</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 15 min (até 08h:15), após este horário entrada somente com justificativa médica.</li>
+                                <li>Término das atividades: 12h:00</li>
+                                <li>Tolerância para saída: 15 min (até 12h:15).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Integral Ensino Fundamental</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 08h:00</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 15 min (até 08h:15), após este horário entrada somente com justificativa médica.</li>
+                                <li>Término das atividades: 16h:30</li>
+                                <li>Tolerância para saída: 15 min (até 16h:45).</li>
+                            </ul>
+                            <div class="mt-4 p-4 bg-yellow-100 rounded-lg text-sm text-yellow-800">
+                                <h5 class="font-semibold">Atenção:</h5>
+                                <p>Para atrasos na saída, será cobrada uma multa de R$30,00 por hora ou fração durante o dia, e R$40,00 por hora ou fração durante a noite.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Procedimentos durante a chegada e saída das crianças -->
+                    <details class="scroll-reveal" data-delay="100">
+                        <summary>Procedimentos de Chegada e Saída</summary>
+                        <div class="details-content space-y-4">
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Em caso de atraso na chegada, a criança só entrará com justificativa médica informada à secretaria.</li>
+                                <li>Pais devem ser discretos e silenciosos na chegada e saída para não interromper o ritmo em sala ou no quintal.</li>
+                                <li>Avisos devem ser feitos via agenda da criança, não na portaria.</li>
+                                <li>Uso de celular/tablet/computadores próximo às crianças (quintal, adjacências, salas e corredores) não é permitido. Celular pode ser usado na recepção em volume baixo.</li>
+                                <li>Ao adentrar a recepção, retirar os calçados para evitar a entrada de areia.</li>
+                                <li>Usar sempre uma linguagem e tom de voz apropriado para crianças.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Sobre alimentação, medicações, entrada com lanches, brinquedos e eletrônicos -->
+                    <details class="scroll-reveal" data-delay="200">
+                        <summary>Alimentação, Medicações e Itens Pessoais</summary>
+                        <div class="details-content space-y-4">
+                            <ul class="list-disc list-inside ml-4">
+                                <li><strong>Alimentação Infantil:</strong> Permitido trazer café da manhã (até 8h), desde que os alimentos estejam de acordo com os princípios de alimentação da escola e nosso cardápio.</li>
+                                <li><strong>Restrições Alimentares:</strong> Caso a criança possua alguma restrição ou necessidade específica de alimentação, solicitar reunião com coordenação escolar e nutricionista.</li>
+                                <li><strong>Alimentos Entregues:</strong> Devem estar etiquetados ou identificados com o nome da criança e da professora.</li>
+                                <li><strong>Lancheira Fundamental:</strong> Permitido o envio de lancheira para o primeiro lanche do dia (9h30), desde que o alimento esteja de acordo com a lista elaborada pela nutricionista. A lancheira é opcional, pois a alimentação da escola está inclusa.</li>
+                                <li><strong>Medicações:</strong> A escola não tem autorização para medicar a criança, com ou sem receita. Não enviar medicações na mochila.</li>
+                                <li><strong>Eletrônicos:</strong> Não é permitido trazer itens eletrônicos (celulares, tablets, games...) para a escola.</li>
+                                <li><strong>Brinquedos:</strong> Não é permitida a entrada de brinquedos no quintal, exceto no dia do brinquedo com rodas (todas as sextas-feiras) ou combinados com as professoras. No dia do brinquedo com rodas pode trazer bicicletas, patinetes, patins, skate e velocípedes.</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Horário do Lanche</h4>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <p class="font-semibold">INFANTIL</p>
+                                    <p>Manhã: 09h</p>
+                                    <p>Tarde: 15h</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <p class="font-semibold">FUNDAMENTAL</p>
+                                    <p>Manhã: 9h30</p>
+                                    <p>Tarde: 15h30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Comunicação entre Escola e Pais -->
+                    <details class="scroll-reveal" data-delay="300">
+                        <summary>Comunicação entre Escola e Pais</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Agenda e Comunicação Diária</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>A agenda da criança deve ser utilizada diariamente por pais e professores para registrar informações básicas sobre sono, higiene, alimentação e rotina do dia.</li>
+                                <li>As informações na agenda devem ser breves e objetivas.</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Reunião com Diretoria e Coordenação Pedagógica</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Conversas detalhadas sobre o comportamento da criança devem ser agendadas previamente.</li>
+                                <li>Horários disponíveis para reunião com Diretoria, Supervisão Pedagógica e Professoras:</li>
+                            </ul>
+                            <div class="overflow-x-auto mt-4">
+                                <table class="min-w-full bg-white rounded-lg shadow-md">
+                                    <thead>
+                                        <tr class="bg-dark-blue text-light">
+                                            <th class="py-2 px-4 text-left">Função</th>
+                                            <th class="py-2 px-4 text-left">Responsável</th>
+                                            <th class="py-2 px-4 text-left">Horários</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b border-gray-200">Direção Geral</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Socorro Carvalho</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Terças e Quintas: 08:00 às 10:00 e 13:30 às 15:00 ou 16:00 às 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b border-gray-200">Supervisão Pedagógica</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Juliana Davim</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Segunda a Sexta: 10:00 às 15:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-4">Professoras</td>
+                                            <td class="py-2 px-4"></td>
+                                            <td class="py-2 px-4">Terças e Quintas: 08:00 às 10:00 e 13:30 às 14:45 ou 15:30 às 16:00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Solicitação de Documentos no Ato da Matrícula -->
+                    <details class="scroll-reveal" data-delay="400">
+                        <summary>Documentos para Matrícula e Prazos de Solicitação</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Documentos no Ato da Matrícula:</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Preenchimento da Folha de Cadastro do aluno</li>
+                                <li>Preenchimento do Requerimento de matrícula</li>
+                                <li>Identidade e CPF dos pais (1 cópia)</li>
+                                <li>Comprovante de residência (1 cópia)</li>
+                                <li>Comprovante de renda do financiador</li>
+                                <li>Certidão de Nascimento da criança (1 cópia)</li>
+                                <li>Cartão de Vacina da criança (1 cópia)</li>
+                                <li>01 foto 3x4</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Prazos e Custos para Solicitação de Documentos:</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li><strong>Isentos (prazo de 48h para envio por e-mail):</strong> Emissão de recibo, nota fiscal, declaração de matrícula, declaração de quitação financeira, declaração para IRRF.</li>
+                                <li><strong>Custo de R$20,00:</strong> Baixa em boleto bancário.</li>
+                                <li><strong>Custo de R$40,00:</strong> Parecer especializado relacionado às habilidades motoras, cognitivas, sociais e emocionais.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                     <!-- Objetos "Achados e Perdidos" e Informativos -->
+                     <details class="scroll-reveal" data-delay="500">
+                        <summary>Informativos e Achados e Perdidos</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Informativos:</h4>
+                            <p>O Quintal Agrias mantém contato com a família por meio da Agenda, Circulares, e Informativos, além de informações através das redes sociais como Instagram e ferramentas online como e-mail e WhatsApp, nos grupos de pais.</p>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Objetos "Achados e Perdidos":</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Objetos encontrados sem identificação são entregues à secretaria e foto enviada nos grupos das salas para identificação.</li>
+                                <li>Todos os materiais pessoais devem ser identificados pelos pais/responsáveis.</li>
+                                <li>Em casos de envio equivocado de roupas e objetos pessoais, os pais deverão enviar na mochila e escrever na agenda que não pertence à sua criança.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+                <p class="text-center text-lg leading-relaxed mt-12 scroll-reveal">
+                    Para informações mais detalhadas sobre todos os procedimentos e acordos de convivência, consulte o Guia completo disponível na secretaria da escola.
+                </p>
+            </div>
+        </section>
+
+        <!-- Atividades em Destaque Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-dark-blue mb-12 scroll-reveal">Atividades em Destaque</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal">
+                    Conheça algumas das principais atividades que desenvolvemos com as crianças no nosso quintal.
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Atividade 1 -->
+                    <div class="bg-medium rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/area-recreacao-tanque-areia-criancas.jpg" alt="Área de recreação com tanque de areia" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-lora text-xl font-semibold text-dark-blue mb-3">Recreação na Areia</h3>
+                            <p class="text-md text-gray-700">Atividades sensoriais e de desenvolvimento motor no nosso tanque de areia especialmente preparado para as crianças.</p>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 2 -->
+                    <div class="bg-medium rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal" data-delay="100">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/atividade-sensorial-agua-tinta-criancas.jpg" alt="Atividade sensorial com água e tinta" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-lora text-xl font-semibold text-dark-blue mb-3">Arte Sensorial</h3>
+                            <p class="text-md text-gray-700">Experiências artísticas que estimulam os sentidos através de texturas, cores e materiais naturais.</p>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 3 -->
+                    <div class="bg-medium rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal" data-delay="200">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/criancas-plantando-mudas-terra.jpg" alt="Horta orgânica da escola" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-lora text-xl font-semibold text-dark-blue mb-3">Horta Orgânica</h3>
+                            <p class="text-md text-gray-700">Cultivo de alimentos orgânicos onde as crianças aprendem sobre sustentabilidade e alimentação saudável.</p>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 4 -->
+                    <div class="bg-medium rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal" data-delay="300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/atividade-artistica-infantil-mesa.jpg" alt="Espaço de leitura e biblioteca infantil" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-lora text-xl font-semibold text-dark-blue mb-3">Espaço de Leitura</h3>
+                            <p class="text-md text-gray-700">Biblioteca aconchegante onde desenvolvemos o amor pela leitura e contação de histórias.</p>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 5 -->
+                    <div class="bg-medium rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal" data-delay="400">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/crianca-escalada-brinquedo-madeira.jpg" alt="Playground de madeira natural" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-lora text-xl font-semibold text-dark-blue mb-3">Playground Natural</h3>
+                            <p class="text-md text-gray-700">Brinquedos feitos com materiais naturais que estimulam a criatividade e o desenvolvimento físico.</p>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 6 -->
+                    <div class="bg-medium rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal" data-delay="500">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/quintal-escola-vegetacao-tropical.jpg" alt="Quintal com vegetação tropical" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-lora text-xl font-semibold text-dark-blue mb-3">Contato com a Natureza</h3>
+                            <p class="text-md text-gray-700">Nosso quintal exuberante proporciona conexão direta com a natureza amazônica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria Section -->
+        <section id="galeria" class="py-16 md:py-24 bg-gradient-to-br from-purple-500 to-indigo-600">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Galeria de Fotos</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
+                    Com muitas brincadeiras e diversão ensinamos os princípios da vida.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Imagem 1 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-index="0">
+                        <img src="assets/criancas-subindo-arvore-quintal.jpg" alt="Crianças subindo em árvore no quintal" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 2 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="50" data-index="1">
+                        <img src="assets/criancas-plantando-mudas-terra.jpg" alt="Crianças plantando mudas na terra" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 3 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="100" data-index="2">
+                        <img src="assets/atividade-pintura-maos-crianca.jpg" alt="Atividade de pintura com as mãos" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 4 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="150" data-index="3">
+                        <img src="assets/criancas-pintando-papel-amarelo-sala.jpg" alt="Crianças pintando papel amarelo na sala" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 5 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="200" data-index="4">
+                        <img src="assets/playground-pneus-criancas-brincando.jpg" alt="Crianças brincando no playground de pneus" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 6 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="250" data-index="5">
+                        <img src="assets/atividade-sensorial-agua-tinta-criancas.jpg" alt="Atividade sensorial com água e tinta" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 7 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="300" data-index="6">
+                        <img src="assets/educacao-ambiental-grupo-criancas.jpg" alt="Educação ambiental com grupo de crianças" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 8 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="350" data-index="7">
+                        <img src="assets/oficina-pintura-infantil-ao-ar-livre.jpg" alt="Oficina de pintura infantil ao ar livre" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 9 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="400" data-index="8">
+                        <img src="assets/atividade-sensorial-agua-crianca.jpg" alt="Atividade sensorial com água" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 10 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="450" data-index="9">
+                        <img src="assets/atividade-sensorial-areia-rosa-grupo.jpg" alt="Atividade sensorial com areia rosa em grupo" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 11 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="500" data-index="10">
+                        <img src="assets/brincadeira-areia-recreacao-infantil.jpg" alt="Brincadeira na areia - recreação infantil" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 12 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="550" data-index="11">
+                        <img src="assets/crianca-escalada-brinquedo-madeira.jpg" alt="Criança escalando brinquedo de madeira" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 13 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="600" data-index="12">
+                        <img src="assets/atividade-artistica-infantil-mesa.jpg" alt="Atividade artística infantil na mesa" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 14 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="650" data-index="13">
+                        <img src="assets/escada-madeira-flores-roxas-jardim.jpg" alt="Escada de madeira com flores roxas no jardim" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 15 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="700" data-index="14">
+                        <img src="assets/decoracao-infantil-cata-vento-horta.jpg" alt="Decoração infantil com cata-vento na horta" class="w-full h-60 object-cover">
+                    </div>
+                    <!-- Imagem 16 -->
+                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item" data-delay="750" data-index="15">
+                        <img src="assets/lagarto-iguana-jardim-reciclado.jpg" alt="Lagarto iguana no jardim reciclado" class="w-full h-60 object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relatórios e Avaliações Section -->
+        <section id="relatorios-avaliacoes" class="py-16 md:py-24 bg-gradient-to-br from-orange-400 to-red-500">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Relatórios e Avaliações</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
+                    No Quintal Agrias, acompanhamos o desenvolvimento de cada criança de forma contínua e transparente, através de relatórios, portfólios e avaliações.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal">
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Ensino Infantil</h3>
+                        <ul class="list-disc list-inside text-lg space-y-2 ml-4">
+                            <li>Realizamos semestralmente reuniões com pais, professores e orientação pedagógica.</li>
+                            <li>Entrega do <strong>Portfólio Demonstrativo da Aprendizagem</strong> da criança no semestre.</li>
+                            <li>O Portfólio é composto por Relatório de Desenvolvimento (elaborado pela professora) e amostra de atividades significativas.</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal" data-delay="100">
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Ensino Fundamental</h3>
+                        <ul class="list-disc list-inside text-lg space-y-2 ml-4">
+                            <li>Realizamos reuniões trimestrais com responsáveis, professores e orientação pedagógica para entrega do boletim.</li>
+                            <li>O <strong>Portfólio do Ensino Fundamental</strong> é composto por atividades realizadas nos projetos e o boletim com notas avaliativas (quiz, seminários, provas).</li>
+                            <li>Portfólios são entregues ao final de cada semestre e boletins ao final de cada trimestre.</li>
+                            <li>Pais podem agendar reunião para discutir desenvolvimento pessoal e acadêmico.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-8 bg-medium rounded-xl shadow-md scroll-reveal">
+                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4 text-center">Tipos de Avaliações (Formativas e Diagnósticas)</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-lg">
+                        <div>
+                            <h4 class="font-semibold text-dark-blue mb-2">Avaliações Formativas/Diagnósticas:</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li><strong>Seminários:</strong> Apresentação oral com recursos como cartazes, cartolinas, banners, imagens ou música;</li>
+                                <li><strong>Apresentações Artísticas:</strong> Artes em geral como avaliações de habilidades;</li>
+                                <li><strong>Quiz:</strong> Pequenos testes de acordo com os componentes curriculares;</li>
+                                <li><strong>Avaliações de Habilidades Linguísticas:</strong> Leitura e interpretação de textos e criação de textos, poemas, poesias etc.</li>
+                            </ul>
+                            <p class="text-sm italic mt-2">(A professora distribuirá entre os 10 pontos da primeira nota)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark-blue mb-2">Avaliação Somativa:</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li><strong>Prova:</strong> Questões para avaliar escrita, interpretação, desenho, pintura, concentração, memória e cálculos; em seguida, uma autoavaliação da criança para expressar o nível de dificuldade da prova e sua avaliação do conhecimento.</li>
+                            </ul>
+                            <p class="text-sm italic mt-2">(Entre 0 e 10 pontos)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mt-8 mb-4 text-center">Reposição de Avaliações e Reprovação (Ensino Fundamental)</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2 ml-4">
+                        <li><strong>Reposição sem custo:</strong> Até uma semana após a data da avaliação, após esta data terá um custo de R$30,00. Salvo em situações de atestado médico e viagens informadas com antecedência a coordenação.</li>
+                        <li><strong>Antecipação de avaliações:</strong> Em caso de ausência próximo ao fechamento de bimestres, as avaliações serão antecipadas sem custo, desde que haja aviso prévio.</li>
+                        <li><strong>Frequência:</strong> O aluno deverá ter 75% da frequência mensal (Lei 9394-96), para que não ocorra reprovação por falta.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Fale Conosco Section -->
+        <section id="contato" class="py-16 md:py-24 bg-gradient-to-br from-teal-400 to-cyan-500">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Fale Conosco</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
+                    Ficou interessado em nos conhecer? Agende um horário e venha nos visitar, será um prazer lhe receber!
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Formulário de Contato -->
+                    <div class="bg-medium p-8 rounded-xl shadow-md scroll-reveal">
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-6">Enviar Mensagem</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-dark mb-2">Nome Completo</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-dark-blue focus:border-dark-blue transition duration-200">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-dark mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-dark-blue focus:border-dark-blue transition duration-200">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-dark mb-2">Telefone (Opcional)</label>
+                                <input type="tel" id="phone" name="phone"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-dark-blue focus:border-dark-blue transition duration-200">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-dark mb-2">Sua Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-dark-blue focus:border-dark-blue transition duration-200"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-vibrant-red text-light font-bold py-3 px-6 rounded-full text-lg hover:bg-dark-blue transition duration-300 transform hover:scale-105 shadow-lg">
+                                Enviar Mensagem
+                            </button>
+                            <div id="form-message" class="mt-4 text-center text-lg font-semibold hidden"></div>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contato -->
+                    <div class="bg-medium p-8 rounded-xl shadow-md scroll-reveal" data-delay="100">
+                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-6">Informações de Contato</h3>
+                        <div class="space-y-6 text-lg">
+                            <p class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-dark-blue text-2xl mr-4 mt-1"></i>
+                                <span>R. dos Girassóis, 97 - Aleixo, Manaus, Amazonas</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-phone-alt text-dark-blue text-2xl mr-4"></i>
+                                <a href="tel:+5592982559539" class="hover:underline">(92) 98255-9539</a>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fab fa-whatsapp text-dark-blue text-2xl mr-4"></i>
+                                <a href="https://wa.me/5592982559539" target="_blank" rel="noopener noreferrer" class="hover:underline">(92) 98255-9539</a>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope text-dark-blue text-2xl mr-4"></i>
+                                <a href="mailto:quintalagrias@gmail.com" class="hover:underline">quintalagrias@gmail.com</a>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope text-dark-blue text-2xl mr-4"></i>
+                                <a href="mailto:pedagogicoquintalagrias@gmail.com" class="hover:underline">pedagogicoquintalagrias@gmail.com</a>
+                            </p>
+                        </div>
+                        
+                        <!-- Mapa -->
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-lg text-dark-blue mb-4">Nossa Localização:</h4>
+                            <div class="rounded-xl overflow-hidden shadow-lg">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.072242095066!2d-60.00762698573138!3d-3.078440797775908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9261a3848b6b0c25%3A0x6b8d7a1e0b5e2b0!2sR.+dos+Girass%C3%B3is%2C+97+-+Aleixo%2C+Manaus+-+AM%2C+69060-030!5e0!3m2!1spt-BR!2sbr!4v1678987654321!5m2!1spt-BR!2sbr"
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue py-12 text-light">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-4">&copy; 2019 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
+            <p class="text-md mb-4">O Quintal Agrias agradece a todos que contribuíram para este sonho ser realizado junto às famílias, guardiões e comunidade.</p>
+            <p class="text-md mb-4">"A nossa mais elevada tarefa deve ser a de formar seres humanos livres que sejam capazes de, por si mesmos, encontrar propósito e direção para suas vidas." - Rudolf Steiner</p>
+            <div class="flex justify-center space-x-6">
+                <!-- Links para Redes Sociais -->
+                <a href="https://www.facebook.com/quintalagrias" target="_blank" rel="noopener noreferrer" class="text-light hover:text-secondary-yellow transition duration-300">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank" rel="noopener noreferrer" class="text-light hover:text-secondary-yellow transition duration-300">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-light hover:text-secondary-yellow transition duration-300">
+                    <i class="fab fa-youtube text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <span class="lightbox-nav lightbox-prev">&#10094;</span>
+            <img class="lightbox-image" id="lightbox-img" src="" alt="">
+            <span class="lightbox-nav lightbox-next">&#10095;</span>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div></footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <span class="lightbox-nav lightbox-prev">&#10094;</span>
+            <img class="lightbox-image" id="lightbox-img" src="" alt="">
+            <span class="lightbox-nav lightbox-next">&#10095;</span>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript para interatividade -->
+    <script>
+        // Array com todas as imagens da galeria
+        const galleryImages = [
+            { src: 'assets/criancas-subindo-arvore-quintal.jpg', alt: 'Crianças subindo em árvore no quintal' },
+            { src: 'assets/criancas-plantando-mudas-terra.jpg', alt: 'Crianças plantando mudas na terra' },
+            { src: 'assets/atividade-pintura-maos-crianca.jpg', alt: 'Atividade de pintura com as mãos' },
+            { src: 'assets/criancas-pintando-papel-amarelo-sala.jpg', alt: 'Crianças pintando papel amarelo na sala' },
+            { src: 'assets/playground-pneus-criancas-brincando.jpg', alt: 'Crianças brincando no playground de pneus' },
+            { src: 'assets/atividade-sensorial-agua-tinta-criancas.jpg', alt: 'Atividade sensorial com água e tinta' },
+            { src: 'assets/educacao-ambiental-grupo-criancas.jpg', alt: 'Educação ambiental com grupo de crianças' },
+            { src: 'assets/oficina-pintura-infantil-ao-ar-livre.jpg', alt: 'Oficina de pintura infantil ao ar livre' },
+            { src: 'assets/atividade-sensorial-agua-crianca.jpg', alt: 'Atividade sensorial com água' },
+            { src: 'assets/atividade-sensorial-areia-rosa-grupo.jpg', alt: 'Atividade sensorial com areia rosa em grupo' },
+            { src: 'assets/brincadeira-areia-recreacao-infantil.jpg', alt: 'Brincadeira na areia - recreação infantil' },
+            { src: 'assets/crianca-escalada-brinquedo-madeira.jpg', alt: 'Criança escalando brinquedo de madeira' },
+            { src: 'assets/atividade-artistica-infantil-mesa.jpg', alt: 'Atividade artística infantil na mesa' },
+            { src: 'assets/escada-madeira-flores-roxas-jardim.jpg', alt: 'Escada de madeira com flores roxas no jardim' },
+            { src: 'assets/decoracao-infantil-cata-vento-horta.jpg', alt: 'Decoração infantil com cata-vento na horta' },
+            { src: 'assets/lagarto-iguana-jardim-reciclado.jpg', alt: 'Lagarto iguana no jardim reciclado' }
+        ];
+
+        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+
+        // Função para abrir o lightbox
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const image = galleryImages[index];
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            lightboxCaption.textContent = image.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Função para fechar o lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Função para navegar para a próxima imagem
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const image = galleryImages[currentImageIndex];
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            lightboxCaption.textContent = image.alt;
+        }
+
+        // Função para navegar para a imagem anterior
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            const image = galleryImages[currentImageIndex];
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            lightboxCaption.textContent = image.alt;
+        }
+
+        // Event listeners para os itens da galeria
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                openLightbox(index);
+            });
+        });
+
+        // Event listeners para controles do lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Fechar lightbox clicando no fundo
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Navegação por teclado
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // Obtenha o botão do menu mobile e o menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Adicione um ouvinte de evento de clique para alternar a visibilidade do menu mobile
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fechar o menu mobile quando um link é clicado
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Script para animação de scroll-reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+            const observerOptions = {
+                root: null, // viewport como root
+                rootMargin: '0px',
+                threshold: 0.1 // 10% do elemento visível para ativar
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, delay);
+                        observer.unobserve(entry.target); // Para que a animação ocorra apenas uma vez
+                    }
+                });
+            }, observerOptions);
+
+            scrollRevealElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Script para o formulário de contato
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            formMessage.classList.remove('hidden', 'text-green-600', 'text-red-600');
+            formMessage.classList.add('text-gray-500');
+            formMessage.textContent = 'Enviando sua mensagem...';
+            formMessage.style.display = 'block'; // Garante que a mensagem de loading seja visível
+
+            // Simula um envio de formulário (substituir por um backend real)
+            try {
+                // Aqui você faria uma requisição fetch para seu endpoint de backend
+                // Ex: const response = await fetch('/api/send-message', { method: 'POST', body: new FormData(contactForm) });
+                // const result = await response.json();
+
+                // Simulação de atraso de rede
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // Simulação de sucesso
+                formMessage.classList.remove('text-gray-500');
+                formMessage.classList.add('text-green-600'); // Mantido verde para sucesso, mas pode ser alterado para outra cor da paleta
+                formMessage.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+                contactForm.reset(); // Limpa o formulário
+
+                // Opcional: esconder a mensagem após alguns segundos
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+
+            } catch (error) {
+                console.error('Erro ao enviar o formulário:', error);
+                formMessage.classList.remove('text-gray-500');
+                formMessage.classList.add('text-red-600');
+                formMessage.textContent = 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.';
+            }
+        });
+    </script>
+</body>
+</html>

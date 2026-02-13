@@ -1,0 +1,104 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind Custom Configuration (via CSS Variables where possible) */
+:root {
+    /* Color Palette - Nature Playful */
+    --color-primary: #10B981;       /* Emerald 500 */
+    --color-primary-dark: #059669;  /* Emerald 600 */
+    --color-secondary: #FBBF24;     /* Amber 400 */
+    --color-secondary-dark: #F59E0B;/* Amber 500 */
+    --color-accent: #F43F5E;        /* Rose 500 */
+    --color-accent-dark: #E11D48;   /* Rose 600 */
+    --color-text: #0F172A;          /* Slate 900 */
+    --color-text-light: #475569;    /* Slate 600 */
+    --color-background: #F8FAFC;    /* Slate 50 */
+    --color-surface: #FFFFFF;       /* White */
+
+    /* Typography */
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+/* Utility Classes for Design System */
+.font-fredoka { font-family: var(--font-heading); }
+.font-nunito { font-family: var(--font-body); }
+
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+
+/* Components */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(251, 191, 36, 0.3);
+}
+.btn-secondary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.4);
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific Section Styles */
+.hero-gradient {
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7));
+}
+
+.blob-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}

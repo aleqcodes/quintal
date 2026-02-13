@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia a Dia - Quintal Agrias | Escola Viva</title>
+    <meta name="description"
+        content="Informações práticas para famílias: horários, normas de convivência, alimentação, procedimentos e documentos do Quintal Agrias.">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --color-secondary-yellow: #FFD700;
+            --color-vibrant-red: #FF4D6D;
+            --color-dark-blue: #0A2342;
+            --color-text-dark: #333333;
+            --color-text-light: #F8F8F8;
+            --color-bg-light: #F0F8FF;
+            --color-bg-medium: #E0E8F0;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-lora {
+            font-family: 'Lora', serif;
+        }
+
+        .bg-secondary-yellow {
+            background-color: var(--color-secondary-yellow);
+        }
+
+        .text-secondary-yellow {
+            color: var(--color-secondary-yellow);
+        }
+
+        .bg-vibrant-red {
+            background-color: var(--color-vibrant-red);
+        }
+
+        .text-vibrant-red {
+            color: var(--color-vibrant-red);
+        }
+
+        .bg-dark-blue {
+            background-color: var(--color-dark-blue);
+        }
+
+        .text-dark-blue {
+            color: var(--color-dark-blue);
+        }
+
+        .text-dark {
+            color: var(--color-text-dark);
+        }
+
+        .text-light {
+            color: var(--color-text-light);
+        }
+
+        .bg-light {
+            background-color: var(--color-bg-light);
+        }
+
+        .bg-medium {
+            background-color: var(--color-bg-medium);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        details {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-dark-blue);
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        summary:hover {
+            background-color: var(--color-bg-medium);
+        }
+
+        details[open] summary {
+            background-color: var(--color-bg-medium);
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .details-content {
+            padding: 1.5rem;
+            padding-top: 0;
+            line-height: 1.75;
+            color: var(--color-text-dark);
+        }
+    </style>
+</head>
+
+<body class="font-inter text-dark bg-light antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="assets/logo.png" alt="Logo Quintal Agrias" class="h-10 w-10 object-contain">
+                <span class="font-lora text-2xl font-bold text-dark-blue">Quintal Agrias</span>
+                <span class="font-inter text-lg text-dark-blue hidden md:block">Escola Viva</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="sobre.html"
+                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Sobre</a>
+                <a href="pedagogia.html"
+                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Pedagogia</a>
+                <a href="dia-a-dia.html" class="text-vibrant-red font-semibold transition duration-300">Dia a Dia</a>
+                <a href="galeria.html"
+                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Galeria</a>
+                <a href="contato.html"
+                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-dark-blue focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <nav id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-lg">
+            <a href="sobre.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Sobre</a>
+            <a href="pedagogia.html"
+                class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Pedagogia</a>
+            <a href="dia-a-dia.html" class="block px-4 py-2 text-vibrant-red font-semibold">Dia a Dia</a>
+            <a href="galeria.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Galeria</a>
+            <a href="contato.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="relative bg-cover bg-center h-64 md:h-80 flex items-center justify-center text-center"
+            style="background-image: url('assets/area-recreacao-tanque-areia-criancas.jpg');">
+            <div class="absolute inset-0 bg-dark-blue opacity-60"></div>
+            <div class="relative z-10 text-light">
+                <h1 class="font-lora text-4xl md:text-5xl font-bold drop-shadow-lg">Dia a Dia</h1>
+                <p class="font-inter text-lg mt-2 drop-shadow-md">Princípios e normas de convivência para famílias</p>
+            </div>
+        </section>
+
+        <!-- Princípios e Normas de Convivência -->
+        <section class="py-16 md:py-24 bg-gradient-to-br from-green-400 to-emerald-500">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Princípios e Normas
+                    de Convivência</h2>
+                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
+                    Nosso Guia de Princípios e Normas de Convivência apresenta pontos de relevância sobre o ritmo e as
+                    atividades desenvolvidas diariamente no Quintal Agrias para o crescimento e o bom desenvolvimento
+                    das crianças de forma integral. A leitura deste guia é fundamental para pais e responsáveis.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Horário de Funcionamento -->
+                    <details class="scroll-reveal">
+                        <summary>Horário de Funcionamento</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Manhã Ensino Infantil</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 07h:30</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 30 min (até 08h:00), após este horário entrada somente com
+                                    justificativa médica.</li>
+                                <li>Início do processo de saída: 13h:15</li>
+                                <li>Término das atividades: 13h:30</li>
+                                <li>Tolerância para saída: 15 min (até 13h:45).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Tarde Ensino Infantil</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 13h:30</li>
+                                <li>Portão para recepção: 13h:15</li>
+                                <li>Tolerância para chegada: 30 min (até 14h:00), após este horário entrada somente com
+                                    justificativa médica.</li>
+                                <li>Início do processo de saída: 17h:15</li>
+                                <li>Término das atividades: 17h:30</li>
+                                <li>Tolerância para saída: 15 min (até 17h:45).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Integral Ensino Infantil</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 07h:30</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 30 min (até 08h:00), após este horário entrada somente com
+                                    justificativa médica.</li>
+                                <li>Início do processo de saída: 16h:15</li>
+                                <li>Término das atividades: 16h:30</li>
+                                <li>Tolerância para saída: 15 min (até 16h:45).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Matutino Ensino Fundamental</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 08h:00</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 15 min (até 08h:15), após este horário entrada somente com
+                                    justificativa médica.</li>
+                                <li>Término das atividades: 12h:00</li>
+                                <li>Tolerância para saída: 15 min (até 12h:15).</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue">Integral Ensino Fundamental</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Início das atividades: 08h:00</li>
+                                <li>Portão para recepção: 07h:00</li>
+                                <li>Tolerância para chegada: 15 min (até 08h:15), após este horário entrada somente com
+                                    justificativa médica.</li>
+                                <li>Término das atividades: 16h:30</li>
+                                <li>Tolerância para saída: 15 min (até 16h:45).</li>
+                            </ul>
+                            <div class="mt-4 p-4 bg-yellow-100 rounded-lg text-sm text-yellow-800">
+                                <h5 class="font-semibold">Atenção:</h5>
+                                <p>Para atrasos na saída, será cobrada uma multa de R$30,00 por hora ou fração durante o
+                                    dia, e R$40,00 por hora ou fração durante a noite.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Procedimentos de Chegada e Saída -->
+                    <details class="scroll-reveal" data-delay="100">
+                        <summary>Procedimentos de Chegada e Saída</summary>
+                        <div class="details-content space-y-4">
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Em caso de atraso na chegada, a criança só entrará com justificativa médica
+                                    informada à secretaria.</li>
+                                <li>Pais devem ser discretos e silenciosos na chegada e saída para não interromper o
+                                    ritmo em sala ou no quintal.</li>
+                                <li>Avisos devem ser feitos via agenda da criança, não na portaria.</li>
+                                <li>Uso de celular/tablet/computadores próximo às crianças (quintal, adjacências, salas
+                                    e corredores) não é permitido. Celular pode ser usado na recepção em volume baixo.
+                                </li>
+                                <li>Ao adentrar a recepção, retirar os calçados para evitar a entrada de areia.</li>
+                                <li>Usar sempre uma linguagem e tom de voz apropriado para crianças.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Alimentação, Medicações e Itens Pessoais -->
+                    <details class="scroll-reveal" data-delay="200">
+                        <summary>Alimentação, Medicações e Itens Pessoais</summary>
+                        <div class="details-content space-y-4">
+                            <ul class="list-disc list-inside ml-4">
+                                <li><strong>Alimentação Infantil:</strong> Permitido trazer café da manhã (até 8h),
+                                    desde que os alimentos estejam de acordo com os princípios de alimentação da escola
+                                    e nosso cardápio.</li>
+                                <li><strong>Restrições Alimentares:</strong> Caso a criança possua alguma restrição ou
+                                    necessidade específica de alimentação, solicitar reunião com coordenação escolar e
+                                    nutricionista.</li>
+                                <li><strong>Alimentos Entregues:</strong> Devem estar etiquetados ou identificados com o
+                                    nome da criança e da professora.</li>
+                                <li><strong>Lancheira Fundamental:</strong> Permitido o envio de lancheira para o
+                                    primeiro lanche do dia (9h30), desde que o alimento esteja de acordo com a lista
+                                    elaborada pela nutricionista. A lancheira é opcional, pois a alimentação da escola
+                                    está inclusa.</li>
+                                <li><strong>Medicações:</strong> A escola não tem autorização para medicar a criança,
+                                    com ou sem receita. Não enviar medicações na mochila.</li>
+                                <li><strong>Eletrônicos:</strong> Não é permitido trazer itens eletrônicos (celulares,
+                                    tablets, games...) para a escola.</li>
+                                <li><strong>Brinquedos:</strong> Não é permitida a entrada de brinquedos no quintal,
+                                    exceto no dia do brinquedo com rodas (todas as sextas-feiras) ou combinados com as
+                                    professoras. No dia do brinquedo com rodas pode trazer bicicletas, patinetes,
+                                    patins, skate e velocípedes.</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Horário do Lanche</h4>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <p class="font-semibold">INFANTIL</p>
+                                    <p>Manhã: 09h</p>
+                                    <p>Tarde: 15h</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <p class="font-semibold">FUNDAMENTAL</p>
+                                    <p>Manhã: 9h30</p>
+                                    <p>Tarde: 15h30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Comunicação entre Escola e Pais -->
+                    <details class="scroll-reveal" data-delay="300">
+                        <summary>Comunicação entre Escola e Pais</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Agenda e Comunicação Diária</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>A agenda da criança deve ser utilizada diariamente por pais e professores para
+                                    registrar informações básicas sobre sono, higiene, alimentação e rotina do dia.</li>
+                                <li>As informações na agenda devem ser breves e objetivas.</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Reunião com Diretoria e Coordenação
+                                Pedagógica</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Conversas detalhadas sobre o comportamento da criança devem ser agendadas
+                                    previamente.</li>
+                                <li>Horários disponíveis para reunião com Diretoria, Supervisão Pedagógica e
+                                    Professoras:</li>
+                            </ul>
+                            <div class="overflow-x-auto mt-4">
+                                <table class="min-w-full bg-white rounded-lg shadow-md">
+                                    <thead>
+                                        <tr class="bg-dark-blue text-light">
+                                            <th class="py-2 px-4 text-left">Função</th>
+                                            <th class="py-2 px-4 text-left">Responsável</th>
+                                            <th class="py-2 px-4 text-left">Horários</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b border-gray-200">Direção Geral</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Socorro Carvalho</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Terças e Quintas: 08:00 às
+                                                10:00 e 13:30 às 15:00 ou 16:00 às 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b border-gray-200">Supervisão Pedagógica</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Juliana Davim</td>
+                                            <td class="py-2 px-4 border-b border-gray-200">Segunda a Sexta: 10:00 às
+                                                15:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-4">Professoras</td>
+                                            <td class="py-2 px-4"></td>
+                                            <td class="py-2 px-4">Terças e Quintas: 08:00 às 10:00 e 13:30 às 14:45 ou
+                                                15:30 às 16:00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Documentos para Matrícula -->
+                    <details class="scroll-reveal" data-delay="400">
+                        <summary>Documentos para Matrícula e Prazos de Solicitação</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Documentos no Ato da Matrícula:</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Preenchimento da Folha de Cadastro do aluno</li>
+                                <li>Preenchimento do Requerimento de matrícula</li>
+                                <li>Identidade e CPF dos pais (1 cópia)</li>
+                                <li>Comprovante de residência (1 cópia)</li>
+                                <li>Comprovante de renda do financiador</li>
+                                <li>Certidão de Nascimento da criança (1 cópia)</li>
+                                <li>Cartão de Vacina da criança (1 cópia)</li>
+                                <li>01 foto 3x4</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Prazos e Custos para Solicitação de
+                                Documentos:</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li><strong>Isentos (prazo de 48h para envio por e-mail):</strong> Emissão de recibo,
+                                    nota fiscal, declaração de matrícula, declaração de quitação financeira, declaração
+                                    para IRRF.</li>
+                                <li><strong>Custo de R$20,00:</strong> Baixa em boleto bancário.</li>
+                                <li><strong>Custo de R$40,00:</strong> Parecer especializado relacionado às habilidades
+                                    motoras, cognitivas, sociais e emocionais.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Informativos e Achados e Perdidos -->
+                    <details class="scroll-reveal" data-delay="500">
+                        <summary>Informativos e Achados e Perdidos</summary>
+                        <div class="details-content space-y-4">
+                            <h4 class="font-semibold text-lg text-dark-blue">Informativos:</h4>
+                            <p>O Quintal Agrias mantém contato com a família por meio da Agenda, Circulares, e
+                                Informativos, além de informações através das redes sociais como Instagram e ferramentas
+                                online como e-mail e WhatsApp, nos grupos de pais.</p>
+                            <h4 class="font-semibold text-lg text-dark-blue mt-4">Objetos "Achados e Perdidos":</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Objetos encontrados sem identificação são entregues à secretaria e foto enviada nos
+                                    grupos das salas para identificação.</li>
+                                <li>Todos os materiais pessoais devem ser identificados pelos pais/responsáveis.</li>
+                                <li>Em casos de envio equivocado de roupas e objetos pessoais, os pais deverão enviar na
+                                    mochila e escrever na agenda que não pertence à sua criança.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <p class="text-center text-lg leading-relaxed mt-12 scroll-reveal text-white">
+                    Para informações mais detalhadas sobre todos os procedimentos e acordos de convivência, consulte o
+                    Guia completo disponível na secretaria da escola.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue py-12 text-light">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-4">&copy; 2019 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
+            <p class="text-md mb-4">O Quintal Agrias agradece a todos que contribuíram para este sonho ser realizado
+                junto às famílias, guardiões e comunidade.</p>
+            <p class="text-md mb-4">"A nossa mais elevada tarefa deve ser a de formar seres humanos livres que sejam
+                capazes de, por si mesmos, encontrar propósito e direção para suas vidas." - Rudolf Steiner</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.facebook.com/quintalagrias" target="_blank" rel="noopener noreferrer"
+                    class="text-light hover:text-secondary-yellow transition duration-300"><i
+                        class="fab fa-facebook-f text-2xl"></i></a>
+                <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank" rel="noopener noreferrer"
+                    class="text-light hover:text-secondary-yellow transition duration-300"><i
+                        class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="text-light hover:text-secondary-yellow transition duration-300"><i
+                        class="fab fa-youtube text-2xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => { entry.target.classList.add('is-visible'); }, delay);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.1 });
+            scrollRevealElements.forEach(el => { observer.observe(el); });
+        });
+    </script>
+</body>
+
+</html>
