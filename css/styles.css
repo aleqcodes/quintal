@@ -4,16 +4,26 @@
 /* Tailwind Custom Configuration (via CSS Variables where possible) */
 :root {
     /* Color Palette - Nature Playful */
-    --color-primary: #10B981;       /* Emerald 500 */
-    --color-primary-dark: #059669;  /* Emerald 600 */
-    --color-secondary: #FBBF24;     /* Amber 400 */
-    --color-secondary-dark: #F59E0B;/* Amber 500 */
-    --color-accent: #F43F5E;        /* Rose 500 */
-    --color-accent-dark: #E11D48;   /* Rose 600 */
-    --color-text: #0F172A;          /* Slate 900 */
-    --color-text-light: #475569;    /* Slate 600 */
-    --color-background: #F8FAFC;    /* Slate 50 */
-    --color-surface: #FFFFFF;       /* White */
+    --color-primary: #10B981;
+    /* Emerald 500 */
+    --color-primary-dark: #059669;
+    /* Emerald 600 */
+    --color-secondary: #FBBF24;
+    /* Amber 400 */
+    --color-secondary-dark: #F59E0B;
+    /* Amber 500 */
+    --color-accent: #F43F5E;
+    /* Rose 500 */
+    --color-accent-dark: #E11D48;
+    /* Rose 600 */
+    --color-text: #0F172A;
+    /* Slate 900 */
+    --color-text-light: #475569;
+    /* Slate 600 */
+    --color-background: #F8FAFC;
+    /* Slate 50 */
+    --color-surface: #FFFFFF;
+    /* White */
 
     /* Typography */
     --font-heading: 'Fredoka', sans-serif;
@@ -28,33 +38,61 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
 }
 
 /* Utility Classes for Design System */
-.font-fredoka { font-family: var(--font-heading); }
-.font-nunito { font-family: var(--font-body); }
+.font-fredoka {
+    font-family: var(--font-heading);
+}
 
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
-.text-accent { color: var(--color-accent); }
+.font-nunito {
+    font-family: var(--font-body);
+}
 
-.bg-primary { background-color: var(--color-primary); }
-.bg-secondary { background-color: var(--color-secondary); }
-.bg-accent { background-color: var(--color-accent); }
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}
 
 /* Components */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card-hover:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    background: linear-gradient(135deg, var(--color-primary-dark), #047857);
+    /* Emerald 600 to 700 */
     color: white;
     font-family: var(--font-heading);
     font-weight: 600;
@@ -63,6 +101,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
 }
+
 .btn-primary:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
@@ -70,17 +109,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
     background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-    color: white;
+    color: var(--color-text);
+    /* Dark text on Amber for contrast */
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: 700;
     padding: 0.75rem 2rem;
     border-radius: 9999px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(251, 191, 36, 0.3);
 }
+
 .btn-secondary:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.4);
+}
+
+/* Global Focus Style for Accessibility */
+:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
 }
 
 /* Scroll Reveal Animation */
@@ -89,6 +136,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 .scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
