@@ -8,488 +8,368 @@
     <meta name="description"
         content="Conheça a pedagogia do Quintal Agrias: pilares educacionais, atividades, turmas e avaliações para crianças de educação infantil e ensino fundamental.">
     <link rel="icon" href="assets/logo.png" type="image/png">
+
+    <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --color-secondary-yellow: #FFD700;
-            --color-vibrant-red: #FF4D6D;
-            --color-dark-blue: #0A2342;
-            --color-text-dark: #333333;
-            --color-text-light: #F8F8F8;
-            --color-bg-light: #F0F8FF;
-            --color-bg-medium: #E0E8F0;
-        }
+    <link rel="stylesheet" href="css/styles.css">
 
-        .font-inter {
-            font-family: 'Inter', sans-serif;
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#FBBF24',
+                        accent: '#F43F5E',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        .font-lora {
-            font-family: 'Lora', serif;
-        }
-
-        .bg-secondary-yellow {
-            background-color: var(--color-secondary-yellow);
-        }
-
-        .text-secondary-yellow {
-            color: var(--color-secondary-yellow);
-        }
-
-        .bg-vibrant-red {
-            background-color: var(--color-vibrant-red);
-        }
-
-        .text-vibrant-red {
-            color: var(--color-vibrant-red);
-        }
-
-        .bg-dark-blue {
-            background-color: var(--color-dark-blue);
-        }
-
-        .text-dark-blue {
-            color: var(--color-dark-blue);
-        }
-
-        .text-dark {
-            color: var(--color-text-dark);
-        }
-
-        .text-light {
-            color: var(--color-text-light);
-        }
-
-        .bg-light {
-            background-color: var(--color-bg-light);
-        }
-
-        .bg-medium {
-            background-color: var(--color-bg-medium);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scroll-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    </script>
 </head>
 
-<body class="font-inter text-dark bg-light antialiased">
+<body class="bg-light text-dark font-sans antialiased">
 
-    <!-- Header -->
-    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="assets/logo.png" alt="Logo Quintal Agrias" class="h-10 w-10 object-contain">
-                <span class="font-lora text-2xl font-bold text-dark-blue">Quintal Agrias</span>
-                <span class="font-inter text-lg text-dark-blue hidden md:block">Escola Viva</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="Logo Quintal Agrias"
+                    class="h-10 w-10 object-contain transition-transform group-hover:rotate-12">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl text-primary leading-none">Quintal Agrias</span>
+                    <span class="text-xs text-gray-500 font-medium tracking-wide">Escola Viva</span>
+                </div>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="sobre.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Sobre</a>
-                <a href="pedagogia.html" class="text-vibrant-red font-semibold transition duration-300">Pedagogia</a>
-                <a href="dia-a-dia.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Dia a Dia</a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="sobre.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Sobre</a>
+                <a href="pedagogia.html" class="text-primary font-bold transition-colors">Pedagogia</a>
+                <a href="dia-a-dia.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dia a
+                    Dia</a>
                 <a href="galeria.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Galeria</a>
+                    class="text-gray-600 hover:text-primary font-medium transition-colors">Galeria</a>
                 <a href="contato.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Contato</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-dark-blue focus:outline-none">
+                    class="px-5 py-2 rounded-full bg-accent text-white font-bold shadow-md hover:bg-accent-dark transition-all hover:-translate-y-0.5">Fale
+                    Conosco</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <nav id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-lg">
-            <a href="sobre.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Sobre</a>
-            <a href="pedagogia.html" class="block px-4 py-2 text-vibrant-red font-semibold">Pedagogia</a>
-            <a href="dia-a-dia.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Dia a
-                Dia</a>
-            <a href="galeria.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Galeria</a>
-            <a href="contato.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Contato</a>
-        </nav>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+            <div class="flex flex-col p-4 gap-4">
+                <a href="sobre.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Sobre</a>
+                <a href="pedagogia.html" class="text-primary font-bold py-2 border-b border-gray-50">Pedagogia</a>
+                <a href="dia-a-dia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Dia a Dia</a>
+                <a href="galeria.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Galeria</a>
+                <a href="contato.html"
+                    class="w-full text-center px-5 py-3 rounded-xl bg-accent text-white font-bold shadow-sm">Fale
+                    Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <header class="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/oficina-pintura-infantil-ao-ar-livre.jpg" alt="Educação Infantil"
+                class="w-full h-full object-cover object-center brightness-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center mt-16 px-4">
+            <span
+                class="inline-block px-4 py-1 mb-4 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-bold tracking-wider uppercase border border-white/30 scroll-reveal">Nosso
+                Método</span>
+            <h1
+                class="font-display text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-md scroll-reveal delay-100">
+                Nossa Pedagogia</h1>
+            <p class="text-white/90 text-lg max-w-xl mx-auto font-light scroll-reveal delay-200">Educação integral,
+                restauradora e baseada no livre brincar.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-[40px] md:h-[60px]" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="fill-light"></path>
+            </svg>
+        </div>
     </header>
 
-    <main>
-        <!-- Page Hero -->
-        <section class="relative bg-cover bg-center h-64 md:h-80 flex items-center justify-center text-center"
-            style="background-image: url('assets/oficina-pintura-infantil-ao-ar-livre.jpg');">
-            <div class="absolute inset-0 bg-dark-blue opacity-60"></div>
-            <div class="relative z-10 text-light">
-                <h1 class="font-lora text-4xl md:text-5xl font-bold drop-shadow-lg">Nossa Pedagogia</h1>
-                <p class="font-inter text-lg mt-2 drop-shadow-md">Educação restauradora e integradora</p>
+    <!-- Intro Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <h2 class="font-display text-3xl font-bold text-dark mb-8 scroll-reveal">O Que Oferecemos</h2>
+            <p class="text-gray-600 leading-relaxed text-lg mb-12 scroll-reveal text-center max-w-3xl mx-auto">
+                A nossa identidade é ancorada no <strong class="text-primary">Livre Brincar</strong> como forma genuína
+                de comunicação. Propomos uma educação que desenvolve um ser humano capaz de se sentir responsável por
+                tudo ao seu redor, atuando nas dimensões emocional, espiritual, física e cognitiva.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 duration-300 border border-gray-50 scroll-reveal">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-rose-100 rounded-full flex items-center justify-center text-accent text-2xl">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Artes</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Música e arte circense estimulando a expressão e a
+                        imaginação.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 duration-300 border border-gray-50 scroll-reveal delay-100">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-emerald-100 rounded-full flex items-center justify-center text-primary text-2xl">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Natureza</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Horta, capinagem e alimentação saudável em contato
+                        com a terra.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 duration-300 border border-gray-50 scroll-reveal delay-200">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-amber-100 rounded-full flex items-center justify-center text-secondary text-2xl">
+                        <i class="fas fa-shapes"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Brincar Livre</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ambiente harmonioso que transforma a escola em um
+                        verdadeiro prazer.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 duration-300 border border-gray-50 scroll-reveal delay-300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 text-2xl">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Emoção</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Desenvolvimento de habilidades interpessoais e
+                        regulação emocional.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- O Que Oferecemos Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-br from-red-700 to-red-900">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">O Que Oferecemos
-                </h2>
-                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
-                    A nossa identidade é ancorada no <strong class="text-yellow-200">Livre Brincar</strong> que se
-                    configura como a forma de comunicação genuína de todas as crianças. Propomos uma nova educação: Um
-                    ser humano capaz de se sentir responsável por tudo ao seu redor. Nossas atividades e currículo são
-                    baseados em três grandes eixos de atuação: dimensão emocional e afetiva, dimensão espiritual e
-                    dimensão física e cognitiva.
-                </p>
+    <!-- Turmas Section (Alternate Layout) -->
+    <section class="py-20 bg-white overflow-hidden relative">
+        <div class="absolute -right-32 top-1/2 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="container mx-auto px-4 max-w-6xl relative z-10">
+            <h2 class="font-display text-3xl font-bold text-dark mb-16 text-center scroll-reveal">Nossas Turmas</h2>
 
-                <div class="p-6 bg-medium rounded-xl shadow-md text-center mb-12 max-w-3xl mx-auto scroll-reveal">
-                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-3">Venha fazer parte da nossa
-                        história!</h3>
-                    <p class="text-lg">Seu filho estará em um ambiente que respeita, valoriza e promove o
-                        desenvolvimento da infância integralmente.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal">
-                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                            <img src="assets/atividade-pintura-maos-crianca.jpg" alt="Atividade de pintura"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Artes e Criatividade</h3>
-                        <p class="text-md">Ensinamos arte para as crianças através de aulas de música e arte circense,
-                            estimulando a expressão e a imaginação.</p>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Estação Baby -->
+                <div class="bg-light p-10 rounded-[3rem] border border-gray-100 relative scroll-reveal">
+                    <div class="absolute top-0 right-0 p-6 opacity-10">
+                        <i class="fas fa-baby text-8xl text-accent"></i>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="100">
-                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                            <img src="assets/decoracao-infantil-cata-vento-horta.jpg" alt="Horta com decoração infantil"
-                                class="w-full h-full object-cover">
+                    <h3 class="font-display text-2xl font-bold text-accent mb-6">Estação Baby</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-3 h-3 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+                            <div><strong class="text-dark block">Sala Minhoquinha</strong> <span
+                                    class="text-gray-500 text-sm">5 meses a 1 ano e 3 meses</span></div>
                         </div>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Natureza</h3>
-                        <p class="text-md">Além das aulas de horta e capinagem, oferecemos alimentação saudável para
-                            desde cedo as crianças criarem uma relação de respeito à natureza.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
-                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                            <img src="assets/playground-pneus-criancas-brincando.jpg"
-                                alt="Crianças brincando no playground" class="w-full h-full object-cover">
+                        <div class="flex items-start gap-4">
+                            <div class="w-3 h-3 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+                            <div><strong class="text-dark block">Sala Joaninha</strong> <span
+                                    class="text-gray-500 text-sm">1 ano e 4 meses a 1 ano e 11 meses</span></div>
                         </div>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Brincar Livremente</h3>
-                        <p class="text-md">Acreditamos que um ambiente harmonioso e agradável incentiva a criança a
-                            viver sua experiência escolar como um verdadeiro prazer.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="300">
-                        <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                            <img src="assets/educacao-ambiental-grupo-criancas.jpg" alt="Educação ambiental"
-                                class="w-full h-full object-cover">
+                        <div class="flex items-start gap-4">
+                            <div class="w-3 h-3 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+                            <div><strong class="text-dark block">Sala Jabuti</strong> <span
+                                    class="text-gray-500 text-sm">2 anos a 2 anos e 11 meses</span></div>
                         </div>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Educação Emocional</h3>
-                        <p class="text-md">Ajudamos no processo de desenvolvimento das habilidades de relacionamento
-                            interpessoal, potencial físico e cognitivo das crianças.</p>
+                        <div class="flex items-start gap-4">
+                            <div class="w-3 h-3 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+                            <div><strong class="text-dark block">Sala Coelho</strong> <span
+                                    class="text-gray-500 text-sm">3 anos a 3 anos e 11 meses</span></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Atividades Extras -->
-                <div class="mt-16">
-                    <h3 class="font-lora text-3xl font-bold text-center text-white mb-12 scroll-reveal">Atividades em
-                        Destaque</h3>
-
-                    <!-- Turmas -->
-                    <div class="p-8 bg-medium rounded-xl shadow-md text-center mb-12 max-w-4xl mx-auto scroll-reveal">
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Idades que o Quintal Agrias
-                            atende!</h3>
-                        <div class="grid md:grid-cols-2 gap-8 mt-6">
-                            <div>
-                                <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3">Estação Baby</h4>
-                                <ul class="list-none text-left text-lg space-y-2">
-                                    <li><strong>Sala Minhoquinha</strong><br>De 5 meses a 1 ano e 3 meses</li>
-                                    <li><strong>Sala Joaninha</strong><br>1 ano e 4 meses a 1 ano e 11 meses</li>
-                                    <li><strong>Sala Jabuti</strong><br>2 anos a 2 anos e 11 meses</li>
-                                    <li><strong>Sala Coelho</strong><br>3 anos a 3 anos e 11 meses</li>
-                                </ul>
+                <!-- Estação Kids e Casulo -->
+                <div class="space-y-8 scroll-reveal delay-100">
+                    <div class="bg-light p-8 rounded-[2.5rem] border border-gray-100">
+                        <h3 class="font-display text-2xl font-bold text-secondary mb-4">Estação Kids</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                                <span class="text-gray-600"><strong>Sala Formiga</strong> (4 anos)</span>
                             </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                                <span class="text-gray-600"><strong>Sala Lagarta</strong> (5 anos)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-light p-8 rounded-[2.5rem] border border-gray-100">
+                        <h3 class="font-display text-2xl font-bold text-primary mb-4">Estação Casulo (Fundamental)</h3>
+                        <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3">Estação Kids</h4>
-                                <ul class="list-none text-left text-lg space-y-2">
-                                    <li><strong>Sala Formiga</strong><br>4 anos e 4 anos e 11 meses</li>
-                                    <li><strong>Sala Lagarta</strong><br>5 anos a 5 anos e 11 meses</li>
-                                </ul>
-                                <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3 mt-6">Estação Casulo
+                                <h4 class="font-bold text-dark text-sm mb-2 opacity-80 uppercase tracking-wide">
                                     Alfabetização</h4>
-                                <ul class="list-none text-left text-lg space-y-2">
-                                    <li><strong>1º ano</strong> – Borboleta Azul</li>
-                                    <li><strong>2º ano</strong> – Borboleta Monarca</li>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>1º ano</li>
+                                    <li>2º ano</li>
                                 </ul>
-                                <h4 class="font-lora text-xl font-semibold text-vibrant-red mb-3 mt-6">Estação Casulo
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-sm mb-2 opacity-80 uppercase tracking-wide">
                                     Letramento</h4>
-                                <ul class="list-none text-left text-lg space-y-2">
-                                    <li><strong>3º ano</strong> – Borboleta Esmeralda</li>
-                                    <li><strong>4º ano</strong> – Borboleta Manacá</li>
-                                    <li><strong>5º ano</strong> – Borboleta Agrias</li>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>3º ano</li>
+                                    <li>4º ano</li>
+                                    <li>5º ano</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal">
-                            <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                                <img src="assets/criancas-pintando-papel-amarelo-sala.jpg" alt="Aula de inglês"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-4">Inglês</h4>
-                            <p class="text-md">Introdução lúdica ao idioma inglês através de jogos, músicas e atividades
-                                interativas que despertam o interesse natural das crianças pelo aprendizado de uma
-                                segunda língua.</p>
-                        </div>
-                        <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="100">
-                            <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                                <img src="assets/oficina-pintura-infantil-ao-ar-livre.jpg" alt="Musicalização"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-4">Musicalização</h4>
-                            <p class="text-md">Desenvolvimento da sensibilidade musical através de instrumentos, canções
-                                e ritmos que estimulam a coordenação motora e a expressão artística das crianças.</p>
-                        </div>
-                        <div class="bg-white p-8 rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
-                            <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-xl">
-                                <img src="assets/crianca-escalada-brinquedo-madeira.jpg" alt="Atividades motoras"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="font-lora text-xl font-semibold text-dark-blue mb-4">Atividades Motoras</h4>
-                            <p class="text-md">Exercícios e brincadeiras que promovem o desenvolvimento da coordenação
-                                motora grossa e fina, equilíbrio e consciência corporal através de movimentos naturais e
-                                divertidos.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 4 Pilares Educacionais -->
-        <section class="py-16 md:py-24 bg-gradient-to-br from-purple-600 to-pink-600">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Nossos 4 Pilares
-                    Educacionais</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center scroll-reveal">
-                        <i class="fas fa-child text-4xl text-vibrant-red mb-4"></i>
-                        <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Autonomia</h4>
-                        <p class="text-md">Processo gradual e essencial para potencializar o desenvolvimento das
-                            habilidades emocionais, motoras, sociais e cognitivas. A criança se desenvolve naturalmente
-                            quando está em contato com um ambiente rico em estímulos.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center scroll-reveal" data-delay="100">
-                        <i class="fas fa-heart text-4xl text-vibrant-red mb-4"></i>
-                        <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Afetividade</h4>
-                        <p class="text-md">O afeto, respeito, temperança, gratidão, solidariedade são valores praticados
-                            todos os dias pela equipe de guardiãs para favorecer a formação de um ser humano autêntico,
-                            respeitoso que leve para sua vida memórias afetivas de uma cultura de paz.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
-                        <i class="fas fa-leaf text-4xl text-vibrant-red mb-4"></i>
-                        <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Contato com a Natureza</h4>
-                        <p class="text-md">Na educação infantil a nossa sala de aula principal é um Quintal lindo
-                            cercado de natureza e cheio de oportunidades para desenvolver a experimentação autônoma
-                            através do Livre brincar.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center scroll-reveal" data-delay="300">
-                        <i class="fas fa-users text-4xl text-vibrant-red mb-4"></i>
-                        <h4 class="font-lora text-xl font-semibold text-dark-blue mb-3">Interação Social</h4>
-                        <p class="text-md">Aspecto essencial para o desenvolvimento saudável das crianças. As interações
-                            sociais positivas proporcionam oportunidades para as crianças aprenderem habilidades de
-                            comunicação, regulação emocional e como construir relacionamentos.</p>
-                    </div>
+    <!-- Espaço e Brincar Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="bg-white rounded-[3rem] shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                    <h3 class="font-display text-3xl font-bold text-dark mb-6">O Espaço como Educador</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Na educação infantil, nosso <strong class="text-primary">Quintal cercado de natureza</strong> é
+                        cheio de oportunidades para a experimentação autônoma.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        No Ensino Fundamental, as salas são <strong>laboratórios de conhecimento</strong>. As crianças
+                        vivenciam os temas através de construções ou experimentos na área externa.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tudo é ofertado através de <span class="text-secondary font-bold">vivências lúdicas</span> onde
+                        aprender é um prazer.
+                    </p>
+                </div>
+                <div class="md:w-1/2 min-h-[300px] relative">
+                    <img src="assets/playground-pneus-criancas-brincando.jpg" alt="Playground com pneus"
+                        class="absolute inset-0 w-full h-full object-cover">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Espaço de Convivência e Livre Brincar -->
-        <section class="py-16 md:py-24 bg-gradient-to-br from-blue-400 to-blue-600">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Espaço de
-                    Convivência e Livre Brincar</h2>
+    <!-- Avaliações -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="font-display text-3xl font-bold text-dark mb-12 text-center scroll-reveal">Acompanhamento e
+                Avaliação</h2>
 
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                    <div class="scroll-reveal">
-                        <h3 class="font-lora text-2xl font-semibold text-white mb-4">Espaço de Convivência</h3>
-                        <p class="text-lg leading-relaxed mb-6 text-white">
-                            Na educação infantil, o nosso espaço de convivência é um <strong
-                                class="text-yellow-200">Lindo Quintal cercado de natureza</strong> e cheio de
-                            oportunidades para desenvolver a experimentação autônoma através do Livre brincar e das
-                            propostas pedagógicas do cotidiano.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6 text-white">
-                            No Ensino Fundamental as salas são organizadas por área do conhecimento. A partir da sala
-                            Casulo que reúne todas as turmas, cada turma com seu professor se dirige ao laboratório do
-                            conhecimento guiado por sua rotina visual. Após o término, trocam as salas de acordo com a
-                            aula.
-                        </p>
-                        <p class="text-lg leading-relaxed text-white">
-                            Os laboratórios são verdadeiras imersões em cada área de conhecimento, as crianças têm a
-                            oportunidade de vivenciarem os temas através de construções dentro dos laboratórios ou podem
-                            fazer experimentos na área externa.
-                        </p>
-                    </div>
-                    <div class="scroll-reveal">
-                        <img src="assets/area-recreacao-tanque-areia-criancas.jpg"
-                            alt="Área de recreação com tanque de areia"
-                            class="rounded-xl shadow-lg w-full h-auto object-cover">
-                    </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 scroll-reveal">
+                    <h3 class="font-display text-xl font-bold text-dark mb-4 border-l-4 border-accent pl-4">Educação
+                        Infantil</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Acompanhamento contínuo através de <strong>Portfólios Demonstrativos</strong> semestrais,
+                        contendo Relatório de Desenvolvimento e amostra de atividades significativas.
+                    </p>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="scroll-reveal order-2 md:order-1">
-                        <img src="assets/brincadeira-areia-recreacao-infantil.jpg" alt="Crianças brincando na areia"
-                            class="rounded-xl shadow-lg w-full h-auto object-cover">
-                    </div>
-                    <div class="scroll-reveal order-1 md:order-2">
-                        <h3 class="font-lora text-2xl font-semibold text-white mb-4">Livre Brincar</h3>
-                        <p class="text-lg leading-relaxed mb-6 text-white">
-                            Olhamos para o brincar como algo essencial à infância e, portanto, todas as propostas
-                            pedagógicas do cotidiano são ofertadas através de <strong class="text-yellow-200">vivências
-                                lúdicas e envolventes</strong> onde a criança sente prazer em participar.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6 text-white">
-                            As ofertas acontecem no Quintal embaixo das árvores, sentados em círculos na areia ou
-                            simplesmente permitindo que busquem criar as suas próprias brincadeiras livres usando todo o
-                            ambiente que já é uma riqueza em estímulos sensoriais diversos.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6 text-white">
-                            Portanto, todas as práticas pedagógicas do cotidiano...
-                        </p>
-                    </div>
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 scroll-reveal delay-100">
+                    <h3 class="font-display text-xl font-bold text-dark mb-4 border-l-4 border-secondary pl-4">Ensino
+                        Fundamental</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Portfólios semestrais e Boletins trimestrais. Inclui autoavaliação e avaliações formativas
+                        (seminários, quiz, artes) e somativas (provas).
+                    </p>
                 </div>
             </div>
-        </section>
 
-        <!-- Relatórios e Avaliações -->
-        <section class="py-16 md:py-24 bg-gradient-to-br from-orange-400 to-red-500">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Relatórios e
-                    Avaliações</h2>
-                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal text-white">
-                    No Quintal Agrias, acompanhamos o desenvolvimento de cada criança de forma contínua e transparente,
-                    através de relatórios, portfólios e avaliações.
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal">
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Ensino Infantil</h3>
-                        <ul class="list-disc list-inside text-lg space-y-2 ml-4">
-                            <li>Realizamos semestralmente reuniões com pais, professores e orientação pedagógica.</li>
-                            <li>Entrega do <strong>Portfólio Demonstrativo da Aprendizagem</strong> da criança no
-                                semestre.</li>
-                            <li>O Portfólio é composto por Relatório de Desenvolvimento (elaborado pela professora) e
-                                amostra de atividades significativas.</li>
-                        </ul>
-                    </div>
-                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal" data-delay="100">
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Ensino Fundamental</h3>
-                        <ul class="list-disc list-inside text-lg space-y-2 ml-4">
-                            <li>Realizamos reuniões trimestrais com responsáveis, professores e orientação pedagógica
-                                para entrega do boletim.</li>
-                            <li>O <strong>Portfólio do Ensino Fundamental</strong> é composto por atividades realizadas
-                                nos projetos e o boletim com notas avaliativas (quiz, seminários, provas).</li>
-                            <li>Portfólios são entregues ao final de cada semestre e boletins ao final de cada
-                                trimestre.</li>
-                            <li>Pais podem agendar reunião para discutir desenvolvimento pessoal e acadêmico.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mt-12 p-8 bg-medium rounded-xl shadow-md scroll-reveal">
-                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4 text-center">Tipos de Avaliações
-                        (Formativas e Diagnósticas)</h3>
-                    <div class="grid md:grid-cols-2 gap-6 text-lg">
-                        <div>
-                            <h4 class="font-semibold text-dark-blue mb-2">Avaliações Formativas/Diagnósticas:</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li><strong>Seminários:</strong> Apresentação oral com recursos como cartazes,
-                                    cartolinas, banners, imagens ou música;</li>
-                                <li><strong>Apresentações Artísticas:</strong> Artes em geral como avaliações de
-                                    habilidades;</li>
-                                <li><strong>Quiz:</strong> Pequenos testes de acordo com os componentes curriculares;
-                                </li>
-                                <li><strong>Avaliações de Habilidades Linguísticas:</strong> Leitura e interpretação de
-                                    textos e criação de textos, poemas, poesias etc.</li>
-                            </ul>
-                            <p class="text-sm italic mt-2">(A professora distribuirá entre os 10 pontos da primeira
-                                nota)</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark-blue mb-2">Avaliação Somativa:</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li><strong>Prova:</strong> Questões para avaliar escrita, interpretação, desenho,
-                                    pintura, concentração, memória e cálculos; em seguida, uma autoavaliação da criança
-                                    para expressar o nível de dificuldade da prova e sua avaliação do conhecimento.</li>
-                            </ul>
-                            <p class="text-sm italic mt-2">(Entre 0 e 10 pontos)</p>
-                        </div>
-                    </div>
-                    <h3 class="font-lora text-2xl font-semibold text-dark-blue mt-8 mb-4 text-center">Reposição de
-                        Avaliações e Reprovação (Ensino Fundamental)</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2 ml-4">
-                        <li><strong>Reposição sem custo:</strong> Até uma semana após a data da avaliação, após esta
-                            data terá um custo de R$30,00. Salvo em situações de atestado médico e viagens informadas
-                            com antecedência a coordenação.</li>
-                        <li><strong>Antecipação de avaliações:</strong> Em caso de ausência próximo ao fechamento de
-                            bimestres, as avaliações serão antecipadas sem custo, desde que haja aviso prévio.</li>
-                        <li><strong>Frequência:</strong> O aluno deverá ter 75% da frequência mensal (Lei 9394-96), para
-                            que não ocorra reprovação por falta.</li>
-                    </ul>
-                </div>
+            <div class="text-center p-8 bg-blue-50 rounded-3xl text-blue-800 text-sm font-medium scroll-reveal">
+                A avaliação no Quintal Agrias busca sempre respeitar o tempo da criança, focando em seu progresso
+                individual e na construção de sua autonomia.
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-blue py-12 text-light">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-lg mb-4">&copy; 2019 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
-            <p class="text-md mb-4">O Quintal Agrias agradece a todos que contribuíram para este sonho ser realizado
-                junto às famílias, guardiões e comunidade.</p>
-            <p class="text-md mb-4">"A nossa mais elevada tarefa deve ser a de formar seres humanos livres que sejam
-                capazes de, por si mesmos, encontrar propósito e direção para suas vidas." - Rudolf Steiner</p>
-            <div class="flex justify-center space-x-6">
-                <a href="https://www.facebook.com/quintalagrias" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300"><i
-                        class="fab fa-facebook-f text-2xl"></i></a>
-                <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300"><i
-                        class="fab fa-instagram text-2xl"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300"><i
-                        class="fab fa-youtube text-2xl"></i></a>
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <img src="assets/logo.png" alt="Logo"
+                            class="h-12 w-12 object-contain brightness-0 invert opacity-80">
+                        <span class="font-display font-bold text-2xl">Quintal Agrias</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+                        Escola Viva. Um espaço dedicado ao desenvolvimento integral e feliz de cada criança.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Navegação</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="pedagogia.html" class="hover:text-white transition-colors">Nossa Pedagogia</a></li>
+                        <li><a href="dia-a-dia.html" class="hover:text-white transition-colors">Dia a Dia</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-right">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Siga-nos</h4>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/quintalagrias" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+                <p>&copy; 2024 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
 
         document.addEventListener('DOMContentLoaded', () => {
-            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const delay = parseInt(entry.target.dataset.delay) || 0;
-                        setTimeout(() => { entry.target.classList.add('is-visible'); }, delay);
-                        observer.unobserve(entry.target);
+                        entry.target.classList.add('is-visible');
                     }
                 });
-            }, { root: null, rootMargin: '0px', threshold: 0.1 });
-            scrollRevealElements.forEach(el => { observer.observe(el); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
         });
     </script>
 </body>

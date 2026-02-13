@@ -8,324 +8,376 @@
     <meta name="description"
         content="Conheça o Quintal Agrias: nossa história, missão, visão, princípios e equipe dedicada à educação infantil restauradora em Manaus.">
     <link rel="icon" href="assets/logo.png" type="image/png">
+
+    <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --color-secondary-yellow: #FFD700;
-            --color-vibrant-red: #FF4D6D;
-            --color-dark-blue: #0A2342;
-            --color-text-dark: #333333;
-            --color-text-light: #F8F8F8;
-            --color-bg-light: #F0F8FF;
-            --color-bg-medium: #E0E8F0;
-        }
+    <link rel="stylesheet" href="css/styles.css">
 
-        .font-inter {
-            font-family: 'Inter', sans-serif;
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#FBBF24',
+                        accent: '#F43F5E',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        .font-lora {
-            font-family: 'Lora', serif;
-        }
-
-        .bg-secondary-yellow {
-            background-color: var(--color-secondary-yellow);
-        }
-
-        .text-secondary-yellow {
-            color: var(--color-secondary-yellow);
-        }
-
-        .bg-vibrant-red {
-            background-color: var(--color-vibrant-red);
-        }
-
-        .text-vibrant-red {
-            color: var(--color-vibrant-red);
-        }
-
-        .bg-dark-blue {
-            background-color: var(--color-dark-blue);
-        }
-
-        .text-dark-blue {
-            color: var(--color-dark-blue);
-        }
-
-        .text-dark {
-            color: var(--color-text-dark);
-        }
-
-        .text-light {
-            color: var(--color-text-light);
-        }
-
-        .bg-light {
-            background-color: var(--color-bg-light);
-        }
-
-        .bg-medium {
-            background-color: var(--color-bg-medium);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scroll-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    </script>
 </head>
 
-<body class="font-inter text-dark bg-light antialiased">
+<body class="bg-light text-dark font-sans antialiased">
 
-    <!-- Header -->
-    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="assets/logo.png" alt="Logo Quintal Agrias" class="h-10 w-10 object-contain">
-                <span class="font-lora text-2xl font-bold text-dark-blue">Quintal Agrias</span>
-                <span class="font-inter text-lg text-dark-blue hidden md:block">Escola Viva</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="Logo Quintal Agrias"
+                    class="h-10 w-10 object-contain transition-transform group-hover:rotate-12">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl text-primary leading-none">Quintal Agrias</span>
+                    <span class="text-xs text-gray-500 font-medium tracking-wide">Escola Viva</span>
+                </div>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="sobre.html" class="text-vibrant-red font-semibold transition duration-300">Sobre</a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="sobre.html" class="text-primary font-bold transition-colors">Sobre</a>
                 <a href="pedagogia.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Pedagogia</a>
-                <a href="dia-a-dia.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Dia a Dia</a>
+                    class="text-gray-600 hover:text-primary font-medium transition-colors">Pedagogia</a>
+                <a href="dia-a-dia.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dia a
+                    Dia</a>
                 <a href="galeria.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Galeria</a>
+                    class="text-gray-600 hover:text-primary font-medium transition-colors">Galeria</a>
                 <a href="contato.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Contato</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-dark-blue focus:outline-none">
+                    class="px-5 py-2 rounded-full bg-accent text-white font-bold shadow-md hover:bg-accent-dark transition-all hover:-translate-y-0.5">Fale
+                    Conosco</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <nav id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-lg">
-            <a href="sobre.html" class="block px-4 py-2 text-vibrant-red font-semibold">Sobre</a>
-            <a href="pedagogia.html"
-                class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Pedagogia</a>
-            <a href="dia-a-dia.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Dia a
-                Dia</a>
-            <a href="galeria.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Galeria</a>
-            <a href="contato.html" class="block px-4 py-2 text-dark hover:bg-light transition duration-300">Contato</a>
-        </nav>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+            <div class="flex flex-col p-4 gap-4">
+                <a href="sobre.html" class="text-primary font-bold py-2 border-b border-gray-50">Sobre</a>
+                <a href="pedagogia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Pedagogia</a>
+                <a href="dia-a-dia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Dia a Dia</a>
+                <a href="galeria.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Galeria</a>
+                <a href="contato.html"
+                    class="w-full text-center px-5 py-3 rounded-xl bg-accent text-white font-bold shadow-sm">Fale
+                    Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <header class="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/quintal-escola-vegetacao-tropical.jpg" alt="Sobre o Quintal"
+                class="w-full h-full object-cover object-center brightness-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center mt-16 px-4">
+            <span
+                class="inline-block px-4 py-1 mb-4 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-bold tracking-wider uppercase border border-white/30 scroll-reveal">Nossa
+                Essência</span>
+            <h1
+                class="font-display text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-md scroll-reveal delay-100">
+                Sobre Nós</h1>
+            <p class="text-white/90 text-lg max-w-xl mx-auto font-light scroll-reveal delay-200">Conheça nossa história,
+                valores e quem faz a Escola Viva acontecer.</p>
+        </div>
+        <!-- Curve Separator -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-[40px] md:h-[60px]" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="fill-light"></path>
+            </svg>
+        </div>
     </header>
 
-    <main>
-        <!-- Page Hero -->
-        <section class="relative bg-cover bg-center h-64 md:h-80 flex items-center justify-center text-center"
-            style="background-image: url('assets/quintal-escola-vegetacao-tropical.jpg');">
-            <div class="absolute inset-0 bg-dark-blue opacity-60"></div>
-            <div class="relative z-10 text-light">
-                <h1 class="font-lora text-4xl md:text-5xl font-bold drop-shadow-lg">Sobre Nós</h1>
-                <p class="font-inter text-lg mt-2 drop-shadow-md">Conheça nossa história e nossos valores</p>
-            </div>
-        </section>
-
-        <!-- Nosso Quintal Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-br from-secondary-yellow to-yellow-300">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-dark-blue mb-12 scroll-reveal">Nosso Quintal
-                </h2>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="scroll-reveal">
-                        <p class="text-lg leading-relaxed mb-6">
-                            <strong class="text-vibrant-red">Autonomia, Afetividade, Contato com a Natureza e Interação
-                                Social</strong> são os 4 pilares que sustentam a nossa proposta educacional visando um
-                            desenvolvimento integral da criança.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6">
-                            Somos uma escola de Educação Infantil com uma pedagogia autônoma inspirada nas propostas das
-                            pedagogias ativas e no Livre brincar, alinhados aos documentos que regulamentam a educação
-                            infantil (BNCC e RCA).
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6">
-                            Nossa proposta entende a criança como um indivíduo pleno e multidimensional, utilizando a
-                            observação atenta como intenção pedagógica. Nos inspiramos em metodologias como a pedagogia
-                            Waldorf, o método Montessori e as escolas de Reggio Emillia para valorizar as múltiplas
-                            linguagens da infância.
-                        </p>
-                    </div>
-                    <div class="scroll-reveal">
-                        <img src="assets/criancas-subindo-arvore-quintal.jpg" alt="Crianças brincando no Quintal Agrias"
-                            class="rounded-xl shadow-lg w-full h-auto object-cover">
+    <!-- Nosso Quintal -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <div class="md:w-1/2 scroll-reveal">
+                    <h2 class="font-display text-3xl font-bold text-dark mb-6">Nosso Quintal</h2>
+                    <div class="w-20 h-1.5 bg-primary rounded-full mb-8"></div>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        <strong class="text-primary font-bold">Autonomia, Afetividade, Contato com a Natureza e
+                            Interação Social</strong> são os pilares que sustentam nossa proposta educacional.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Somos uma escola de Educação Infantil com uma pedagogia autônoma, inspirada nas abordagens
+                        ativas e no livre brincar. Alinhados à BNCC, vemos a criança como um ser integral.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nossas inspirações incluem a pedagogia <span
+                            class="font-semibold text-secondary">Waldorf</span>, o método <span
+                            class="font-semibold text-secondary">Montessori</span> e as escolas de <span
+                            class="font-semibold text-secondary">Reggio Emilia</span>, valorizando as múltiplas
+                        linguagens da infância.
+                    </p>
+                </div>
+                <div class="md:w-1/2 scroll-reveal delay-200">
+                    <div class="relative">
+                        <div
+                            class="absolute -top-4 -left-4 w-full h-full bg-secondary/20 rounded-3xl transform -rotate-2">
+                        </div>
+                        <img src="assets/criancas-subindo-arvore-quintal.jpg" alt="Crianças no Quintal"
+                            class="relative rounded-3xl shadow-xl w-full h-auto object-cover transform rotate-1 hover:rotate-0 transition-transform duration-500">
                     </div>
                 </div>
+            </div>
 
-                <!-- Highlighted Quote -->
-                <div class="mt-16 md:mt-20 p-8 bg-medium rounded-xl shadow-md text-center scroll-reveal">
-                    <blockquote class="text-2xl italic font-semibold text-dark-blue">
+            <!-- Quote -->
+            <div class="mt-20 max-w-4xl mx-auto scroll-reveal">
+                <div
+                    class="bg-white p-10 rounded-[3rem] shadow-lg text-center relative overflow-hidden border border-gray-100">
+                    <div class="absolute top-0 left-0 w-20 h-20 bg-accent/10 rounded-br-[3rem]"></div>
+                    <i class="fas fa-quote-left text-4xl text-accent/20 mb-4 inline-block"></i>
+                    <blockquote class="font-display text-2xl font-bold text-dark mb-4">
                         "A infância é o chão sobre o qual caminharemos pelo resto de nossas vidas"
-                        <footer class="text-lg mt-2 text-vibrant-red">Lya Luft</footer>
                     </blockquote>
-                </div>
-
-                <div class="mt-16 md:mt-24 grid md:grid-cols-2 gap-12 items-center">
-                    <div class="scroll-reveal order-2 md:order-1">
-                        <img src="assets/decoracao-infantil-cata-vento-agria.jpg" alt="Borboleta Agrias Narcissus"
-                            class="rounded-xl shadow-lg w-full h-auto object-cover">
-                    </div>
-                    <div class="scroll-reveal order-1 md:order-2">
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Agrias</h3>
-                        <p class="text-lg leading-relaxed mb-6">
-                            <strong class="text-dark-blue">Agrias Narcissus</strong> é uma espécie de borboletas que
-                            aparece apenas em ecossistemas extremamente preservados em cinco localidades dos Estados do
-                            Amazonas, Amapá e Pará. As borboletas revelam o nível de qualidade ambiental local e por
-                            isso é associada à transformação e à restauração da sustentabilidade e qualidade do meio
-                            ambiente.
-                        </p>
-                    </div>
+                    <cite class="text-gray-500 not-italic font-medium">— Lya Luft</cite>
+                    <div class="absolute bottom-0 right-0 w-20 h-20 bg-secondary/10 rounded-tl-[3rem]"></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Visão, Missão e Princípios Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-br from-amber-400 to-amber-600">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-white mb-12 scroll-reveal">Visão, Missão e
-                    Princípios</h2>
+    <!-- Mission/Vision -->
+    <section class="py-20 relative bg-white overflow-hidden">
+        <!-- Background Blobs -->
+        <div
+            class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3">
+        </div>
 
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div class="p-8 bg-white rounded-xl shadow-md scroll-reveal">
-                        <i class="fas fa-seedling text-4xl text-vibrant-red mb-4"></i>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Missão</h3>
-                        <p class="text-lg">Missão educacional focada na transformação mundial através de uma abordagem
-                            holística que integra corpo, mente, emoção e espírito. Busca desenvolver o autoconhecimento
-                            e a observação interna nas crianças, promovendo expressão emocional e espiritual baseada em
-                            amor, verdade e sabedoria. O objetivo central é educar para a paz.</p>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="font-display text-3xl font-bold text-center text-dark mb-16 scroll-reveal">Nossa Identidade</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="bg-light p-8 rounded-3xl border border-gray-100 card-hover scroll-reveal">
+                    <div
+                        class="w-14 h-14 bg-rose-100 rounded-2xl flex items-center justify-center text-accent text-2xl mb-6">
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <div class="p-8 bg-white rounded-xl shadow-md scroll-reveal" data-delay="100">
-                        <i class="fas fa-globe-americas text-4xl text-vibrant-red mb-4"></i>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Visão</h3>
-                        <p class="text-lg">Contribuir para a profunda transformação e revolução da educação, cultura e
-                            sociedade que já está acontecendo a nível mundial.</p>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Missão</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Transformar através de uma abordagem holística que integra corpo, mente, emoção e espírito.
+                        Educar para a paz, amor e sabedoria.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="bg-light p-8 rounded-3xl border border-gray-100 card-hover scroll-reveal delay-100">
+                    <div
+                        class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-secondary text-2xl mb-6">
+                        <i class="fas fa-globe-americas"></i>
                     </div>
-                    <div class="p-8 bg-white rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
-                        <i class="fas fa-hand-holding-heart text-4xl text-vibrant-red mb-4"></i>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Nossos princípios são:</h3>
-                        <ul class="list-disc list-inside text-left text-lg space-y-2">
-                            <li>A família</li>
-                            <li>O "Olhar para dentro"</li>
-                            <li>A harmonia através do silêncio</li>
-                            <li>A expressão</li>
-                            <li>A simplicidade</li>
-                            <li>A Consciência Corporal</li>
-                            <li>O Contato com a terra e respeito a todos os seres</li>
-                            <li><strong class="text-vibrant-red">Protagonismo Infantil</strong></li>
-                        </ul>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Visão</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Contribuir para a revolução da educação e sociedade mundial, focando no ser humano integral e
+                        consciente.
+                    </p>
+                </div>
+
+                <!-- Principles -->
+                <div class="bg-light p-8 rounded-3xl border border-gray-100 card-hover scroll-reveal delay-200">
+                    <div
+                        class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-primary text-2xl mb-6">
+                        <i class="fas fa-heart"></i>
                     </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-4">Princípios</h3>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i> Olhar para
+                            dentro</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i> Harmonia e
+                            Silêncio</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>
+                            Simplicidade</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>
+                            Protagonismo Infantil</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Nossa Equipe Section -->
-        <section class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="font-lora text-4xl font-bold text-center text-dark-blue mb-12 scroll-reveal">Nossa Equipe
-                </h2>
-                <p class="text-center text-lg leading-relaxed mb-12 max-w-3xl mx-auto scroll-reveal">
-                    O Quintal Agrias prima por garantir a segurança, a serenidade e o exercício da sabedoria em todos os
-                    aspectos institucionais, relacionais e pedagógicos da escola. Conheça os responsáveis pela
-                    orientação pedagógica e bem-estar de nossos alunos:
-                </p>
-
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal">
-                        <i class="fas fa-user-tie text-4xl text-dark-blue mb-4"></i>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Gestão/Direção</h3>
-                        <p class="text-lg font-medium text-vibrant-red">Maria do Socorro Oliveira de Carvalho</p>
-                        <p class="text-md mt-2">Inspiradora do Projeto Agrias.<br>Mãe, esposa e avó da
-                            Luna.<br>Psicóloga Clínica Infantil<br>Esp. Psicopatologia clínica, Neuropsicopedagogia
-                            clínica e institucional, Educação Especial Inclusiva, Desenvolvimento
-                            Infantil.<br><br>Prioriza a gestão participativa valorizando as diferentes perspectivas de
-                            educação em nível mundial.<br><br>Responsável por planejar, organizar, orientar, dirigir
-                            esforços e recursos humanos e materiais, administrar os projetos específicos da escola para
-                            alcançar os objetivos de forma eficiente e eficaz.</p>
-                    </div>
-                    <div class="p-8 bg-medium rounded-xl shadow-md scroll-reveal" data-delay="100">
-                        <i class="fas fa-chalkboard-teacher text-4xl text-dark-blue mb-4"></i>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Supervisão Pedagógica Geral
-                        </h3>
-                        <p class="text-lg font-medium text-vibrant-red">Juliana Davim</p>
-                        <p class="text-md mt-2">Pedagoga, Neuropsicopedagoga. Responsável pelo desenvolvimento pessoal
-                            de cada criança e professora, oferecendo orientação e assistência à sua formação como ser
-                            humano.<br><br>Construção, orientação, elaboração e supervisão dos projetos
-                            educacionais<br><br>Acompanhamento dos professores, crianças e famílias<br><br>Organização e
-                            supervisão dos atendimentos especializados</p>
-                    </div>
-                    <div class="p-8 bg-medium rounded-xl shadow-md text-center scroll-reveal" data-delay="200">
-                        <i class="fas fa-apple-alt text-4xl text-dark-blue mb-4"></i>
-                        <h3 class="font-lora text-2xl font-semibold text-dark-blue mb-4">Nutricionista</h3>
-                        <p class="text-lg font-medium text-vibrant-red">Dra. Ana Rita</p>
-                        <p class="text-md mt-2">Nutricionista materno infantil, Doutora em biotecnologia aplicada a
-                            saúde, CRN 4733. Responsável pela elaboração e acompanhamento do cardápio e avaliação
-                            nutricional.</p>
-                    </div>
+    <!-- Agrias Explanation -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="bg-white rounded-[3rem] shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 h-64 md:h-auto relative">
+                    <img src="assets/decoracao-infantil-cata-vento-agria.jpg" alt="Borboleta Agrias"
+                        class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/10"></div>
+                </div>
+                <div class="md:w-1/2 p-10 md:p-14 flex flex-col justify-center">
+                    <h3 class="font-display text-3xl font-bold text-dark mb-4">Por que "Agrias"?</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        <strong class="text-primary">Agrias Narcissus</strong> é uma borboleta rara encontrada em
+                        ecossistemas preservados da Amazônia.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ela simboliza a <span class="text-accent font-medium">transformação</span> e a qualidade
+                        ambiental. Assim como a borboleta, buscamos criar um ambiente onde cada criança possa se
+                        transformar e voar livremente.
+                    </p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-3xl font-bold text-dark mb-4">Nossa Equipe</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Quem cuida com carinho e sabedoria do desenvolvimento dos
+                    pequenos.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Member 1 -->
+                <div class="group text-center scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <div
+                            class="absolute inset-0 bg-secondary rounded-full transform rotate-6 transition-transform group-hover:rotate-12">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-white rounded-full flex items-center justify-center border-4 border-light shadow-md overflow-hidden">
+                            <i class="fas fa-user-tie text-4xl text-gray-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark">Maria do Socorro</h3>
+                    <p class="text-primary font-medium text-sm uppercase tracking-wide mb-3">Direção / Gestão</p>
+                    <p class="text-gray-500 text-sm leading-relaxed px-4">
+                        Psicóloga Clínica Infantil, mãe e avó. Inspiradora do projeto Agrias com foco em gestão
+                        participativa.
+                    </p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="group text-center scroll-reveal delay-100">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <div
+                            class="absolute inset-0 bg-accent rounded-full transform -rotate-3 transition-transform group-hover:-rotate-6">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-white rounded-full flex items-center justify-center border-4 border-light shadow-md overflow-hidden">
+                            <i class="fas fa-chalkboard-teacher text-4xl text-gray-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark">Juliana Davim</h3>
+                    <p class="text-primary font-medium text-sm uppercase tracking-wide mb-3">Supervisão Pedagógica</p>
+                    <p class="text-gray-500 text-sm leading-relaxed px-4">
+                        Pedagoga e Neuropsicopedagoga. Cuida do desenvolvimento pessoal de cada criança e formação dos
+                        professores.
+                    </p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="group text-center scroll-reveal delay-200">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <div
+                            class="absolute inset-0 bg-primary rounded-full transform rotate-3 transition-transform group-hover:rotate-6">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-white rounded-full flex items-center justify-center border-4 border-light shadow-md overflow-hidden">
+                            <i class="fas fa-apple-alt text-4xl text-gray-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark">Dra. Ana Rita</h3>
+                    <p class="text-primary font-medium text-sm uppercase tracking-wide mb-3">Nutricionista</p>
+                    <p class="text-gray-500 text-sm leading-relaxed px-4">
+                        Nutricionista materno infantil. Responsável pela elaboração de cardápios saudáveis e avaliação
+                        nutricional.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-blue py-12 text-light">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-lg mb-4">&copy; 2019 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
-            <p class="text-md mb-4">O Quintal Agrias agradece a todos que contribuíram para este sonho ser realizado
-                junto às famílias, guardiões e comunidade.</p>
-            <p class="text-md mb-4">"A nossa mais elevada tarefa deve ser a de formar seres humanos livres que sejam
-                capazes de, por si mesmos, encontrar propósito e direção para suas vidas." - Rudolf Steiner</p>
-            <div class="flex justify-center space-x-6">
-                <a href="https://www.facebook.com/quintalagrias" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300">
-                    <i class="fab fa-facebook-f text-2xl"></i>
-                </a>
-                <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300">
-                    <i class="fab fa-youtube text-2xl"></i>
-                </a>
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <img src="assets/logo.png" alt="Logo"
+                            class="h-12 w-12 object-contain brightness-0 invert opacity-80">
+                        <span class="font-display font-bold text-2xl">Quintal Agrias</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+                        Escola Viva. Um espaço dedicado ao desenvolvimento integral e feliz de cada criança.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Navegação</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="pedagogia.html" class="hover:text-white transition-colors">Nossa Pedagogia</a></li>
+                        <li><a href="dia-a-dia.html" class="hover:text-white transition-colors">Dia a Dia</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-right">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Siga-nos</h4>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/quintalagrias" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+                <p>&copy; 2024 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
 
         document.addEventListener('DOMContentLoaded', () => {
-            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const delay = parseInt(entry.target.dataset.delay) || 0;
-                        setTimeout(() => { entry.target.classList.add('is-visible'); }, delay);
-                        observer.unobserve(entry.target);
+                        entry.target.classList.add('is-visible');
                     }
                 });
-            }, { root: null, rootMargin: '0px', threshold: 0.1 });
-            scrollRevealElements.forEach(el => { observer.observe(el); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
         });
     </script>
 </body>

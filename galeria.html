@@ -5,89 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria - Quintal Agrias | Escola Viva</title>
-    <meta name="description" content="Galeria de fotos do Quintal Agrias: momentos de brincadeiras e diversão.">
+    <meta name="description"
+        content="Explore a galeria de fotos do Quintal Agrias. Momentos de alegria, aprendizado e contato com a natureza.">
     <link rel="icon" href="assets/logo.png" type="image/png">
+
+    <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#FBBF24',
+                        accent: '#F43F5E',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --color-secondary-yellow: #FFD700;
-            --color-vibrant-red: #FF4D6D;
-            --color-dark-blue: #0A2342;
-            --color-text-dark: #333;
-            --color-text-light: #F8F8F8;
-            --color-bg-light: #F0F8FF;
-            --color-bg-medium: #E0E8F0;
-        }
-
-        .font-inter {
-            font-family: 'Inter', sans-serif
-        }
-
-        .font-lora {
-            font-family: 'Lora', serif
-        }
-
-        .bg-secondary-yellow {
-            background-color: var(--color-secondary-yellow)
-        }
-
-        .text-secondary-yellow {
-            color: var(--color-secondary-yellow)
-        }
-
-        .bg-vibrant-red {
-            background-color: var(--color-vibrant-red)
-        }
-
-        .text-vibrant-red {
-            color: var(--color-vibrant-red)
-        }
-
-        .bg-dark-blue {
-            background-color: var(--color-dark-blue)
-        }
-
-        .text-dark-blue {
-            color: var(--color-dark-blue)
-        }
-
-        .text-dark {
-            color: var(--color-text-dark)
-        }
-
-        .text-light {
-            color: var(--color-text-light)
-        }
-
-        .bg-light {
-            background-color: var(--color-bg-light)
-        }
-
-        .bg-medium {
-            background-color: var(--color-bg-medium)
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .6s ease-out, transform .6s ease-out
-        }
-
-        .scroll-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0)
-        }
-
         .lightbox {
             display: none;
             position: fixed;
@@ -96,252 +43,509 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, .9);
-            backdrop-filter: blur(5px)
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .lightbox.active {
             display: flex;
-            align-items: center;
-            justify-content: center
+            opacity: 1;
         }
 
         .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            margin: auto
         }
 
         .lightbox-image {
-            width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: contain;
+            max-width: 100%;
+            max-height: 85vh;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .5)
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
         }
 
-        .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: #fff;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color .3s
+        .lightbox.active .lightbox-image {
+            transform: scale(1);
         }
 
-        .lightbox-close:hover {
-            color: var(--color-vibrant-red)
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 10px;
-            background: rgba(0, 0, 0, .5);
-            border-radius: 50%;
-            transition: all .3s;
-            user-select: none
-        }
-
-        .lightbox-nav:hover {
-            background: var(--color-vibrant-red)
-        }
-
-        .lightbox-prev {
-            left: -60px
-        }
-
-        .lightbox-next {
-            right: -60px
-        }
-
-        .lightbox-caption {
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            right: 0;
-            color: #fff;
-            text-align: center;
-            font-size: 16px;
-            padding: 10px
-        }
-
-        .gallery-item {
-            cursor: pointer
-        }
-
-        @media(max-width:768px) {
-            .lightbox-nav {
-                font-size: 24px;
-                padding: 8px
-            }
-
-            .lightbox-prev {
-                left: 10px
-            }
-
-            .lightbox-next {
-                right: 10px
-            }
-
-            .lightbox-close {
-                top: 10px;
-                right: 10px;
-                font-size: 30px
-            }
+        /* Hover Overlay for Gallery Items */
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
         }
     </style>
 </head>
 
-<body class="font-inter text-dark bg-light antialiased">
-    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="assets/logo.png" alt="Logo Quintal Agrias" class="h-10 w-10 object-contain">
-                <span class="font-lora text-2xl font-bold text-dark-blue">Quintal Agrias</span>
-                <span class="font-inter text-lg text-dark-blue hidden md:block">Escola Viva</span>
-            </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="sobre.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Sobre</a>
-                <a href="pedagogia.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Pedagogia</a>
-                <a href="dia-a-dia.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Dia a Dia</a>
-                <a href="galeria.html" class="text-vibrant-red font-semibold transition duration-300">Galeria</a>
-                <a href="contato.html"
-                    class="text-dark hover:text-vibrant-red font-medium transition duration-300">Contato</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-dark-blue focus:outline-none"><i
-                    class="fas fa-bars text-2xl"></i></button>
-        </div>
-        <nav id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-lg">
-            <a href="sobre.html" class="block px-4 py-2 text-dark hover:bg-light">Sobre</a>
-            <a href="pedagogia.html" class="block px-4 py-2 text-dark hover:bg-light">Pedagogia</a>
-            <a href="dia-a-dia.html" class="block px-4 py-2 text-dark hover:bg-light">Dia a Dia</a>
-            <a href="galeria.html" class="block px-4 py-2 text-vibrant-red font-semibold">Galeria</a>
-            <a href="contato.html" class="block px-4 py-2 text-dark hover:bg-light">Contato</a>
-        </nav>
-    </header>
-    <main>
-        <section class="relative bg-cover bg-center h-64 md:h-80 flex items-center justify-center text-center"
-            style="background-image:url('assets/criancas-subindo-arvore-quintal.jpg')">
-            <div class="absolute inset-0 bg-dark-blue opacity-60"></div>
-            <div class="relative z-10 text-light">
-                <h1 class="font-lora text-4xl md:text-5xl font-bold drop-shadow-lg">Galeria de Fotos</h1>
-                <p class="font-inter text-lg mt-2 drop-shadow-md">Com muitas brincadeiras e diversão ensinamos os
-                    princípios da vida</p>
-            </div>
-        </section>
-        <section class="py-16 md:py-24 bg-gradient-to-br from-purple-500 to-indigo-600">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-index="0"><img src="assets/criancas-subindo-arvore-quintal.jpg"
-                            alt="Crianças subindo em árvore no quintal" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="50" data-index="1"><img src="assets/criancas-plantando-mudas-terra.jpg"
-                            alt="Crianças plantando mudas na terra" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="100" data-index="2"><img src="assets/atividade-pintura-maos-crianca.jpg"
-                            alt="Atividade de pintura com as mãos" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="150" data-index="3"><img src="assets/criancas-pintando-papel-amarelo-sala.jpg"
-                            alt="Crianças pintando papel amarelo" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="200" data-index="4"><img src="assets/playground-pneus-criancas-brincando.jpg"
-                            alt="Playground de pneus" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="250" data-index="5"><img src="assets/atividade-sensorial-agua-tinta-criancas.jpg"
-                            alt="Atividade sensorial com água e tinta" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="300" data-index="6"><img src="assets/educacao-ambiental-grupo-criancas.jpg"
-                            alt="Educação ambiental" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="350" data-index="7"><img src="assets/oficina-pintura-infantil-ao-ar-livre.jpg"
-                            alt="Oficina de pintura ao ar livre" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="400" data-index="8"><img src="assets/atividade-sensorial-agua-crianca.jpg"
-                            alt="Atividade sensorial com água" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="450" data-index="9"><img src="assets/atividade-sensorial-areia-rosa-grupo.jpg"
-                            alt="Atividade sensorial com areia rosa" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="500" data-index="10"><img src="assets/brincadeira-areia-recreacao-infantil.jpg"
-                            alt="Brincadeira na areia" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="550" data-index="11"><img src="assets/crianca-escalada-brinquedo-madeira.jpg"
-                            alt="Escalada em brinquedo de madeira" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="600" data-index="12"><img src="assets/atividade-artistica-infantil-mesa.jpg"
-                            alt="Atividade artística na mesa" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="650" data-index="13"><img src="assets/escada-madeira-flores-roxas-jardim.jpg"
-                            alt="Escada com flores roxas" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="700" data-index="14"><img src="assets/decoracao-infantil-cata-vento-horta.jpg"
-                            alt="Cata-vento na horta" class="w-full h-60 object-cover"></div>
-                    <div class="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 scroll-reveal gallery-item"
-                        data-delay="750" data-index="15"><img src="assets/lagarto-iguana-jardim-reciclado.jpg"
-                            alt="Iguana no jardim" class="w-full h-60 object-cover"></div>
+<body class="bg-light text-dark font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="Logo Quintal Agrias"
+                    class="h-10 w-10 object-contain transition-transform group-hover:rotate-12">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl text-primary leading-none">Quintal Agrias</span>
+                    <span class="text-xs text-gray-500 font-medium tracking-wide">Escola Viva</span>
                 </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="sobre.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Sobre</a>
+                <a href="pedagogia.html"
+                    class="text-gray-600 hover:text-primary font-medium transition-colors">Pedagogia</a>
+                <a href="dia-a-dia.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dia a
+                    Dia</a>
+                <a href="galeria.html" class="text-primary font-bold transition-colors">Galeria</a>
+                <a href="contato.html"
+                    class="px-5 py-2 rounded-full bg-accent text-white font-bold shadow-md hover:bg-accent-dark transition-all hover:-translate-y-0.5">Fale
+                    Conosco</a>
             </div>
-        </section>
-    </main>
-    <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
-            <span class="lightbox-nav lightbox-prev">&#10094;</span>
-            <img class="lightbox-image" id="lightbox-img" src="" alt="">
-            <span class="lightbox-nav lightbox-next">&#10095;</span>
-            <div class="lightbox-caption" id="lightbox-caption"></div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+            <div class="flex flex-col p-4 gap-4">
+                <a href="sobre.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Sobre</a>
+                <a href="pedagogia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Pedagogia</a>
+                <a href="dia-a-dia.html"
+                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Dia a Dia</a>
+                <a href="galeria.html" class="text-primary font-bold py-2 border-b border-gray-50">Galeria</a>
+                <a href="contato.html"
+                    class="w-full text-center px-5 py-3 rounded-xl bg-accent text-white font-bold shadow-sm">Fale
+                    Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <header class="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/criancas-subindo-arvore-quintal.jpg" alt="Crianças brincando"
+                class="w-full h-full object-cover object-top brightness-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center mt-16 px-4">
+            <span
+                class="inline-block px-4 py-1 mb-4 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-bold tracking-wider uppercase border border-white/30 scroll-reveal">Momentos
+                Mágicos</span>
+            <h1
+                class="font-display text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-md scroll-reveal delay-100">
+                Galeria de Fotos</h1>
+            <p class="text-white/90 text-lg max-w-xl mx-auto font-light scroll-reveal delay-200">Registros de dias
+                cheios de descobertas e alegria.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-[40px] md:h-[60px]" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="fill-light"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4 max-w-7xl">
+
+            <!-- Filters (Optional, can be active) -->
+            <div class="flex justify-center gap-4 mb-12 flex-wrap scroll-reveal">
+                <button
+                    class="px-6 py-2 rounded-full bg-primary text-white font-bold shadow-md hover:bg-primary-dark transition-transform hover:-translate-y-1">Todos</button>
+                <button
+                    class="px-6 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm hover:shadow-md hover:text-primary transition-transform hover:-translate-y-1">Dia
+                    a Dia</button>
+                <button
+                    class="px-6 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm hover:shadow-md hover:text-primary transition-transform hover:-translate-y-1">Eventos</button>
+                <button
+                    class="px-6 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm hover:shadow-md hover:text-primary transition-transform hover:-translate-y-1">Estrutura</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-max"
+                id="gallery-grid">
+                <!-- Items will be generated by JS or hardcoded for SEO, keeping hardcoded for now due to implementation -->
+                <!-- Item 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal gallery-item"
+                    onclick="openLightbox(0)">
+                    <img src="assets/criancas-subindo-arvore-quintal.jpg" alt="Crianças subindo em árvore"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Aventura na Árvore</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-50 gallery-item"
+                    onclick="openLightbox(1)">
+                    <img src="assets/criancas-plantando-mudas-terra.jpg" alt="Crianças plantando mudas"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Plantando o Futuro</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-100 gallery-item"
+                    onclick="openLightbox(2)">
+                    <img src="assets/atividade-pintura-maos-crianca.jpg" alt="Pintura com as mãos"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Arte com as Mãos</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-150 gallery-item"
+                    onclick="openLightbox(3)">
+                    <img src="assets/criancas-pintando-papel-amarelo-sala.jpg" alt="Pintando papel amarelo"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Expressão Artística</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-200 gallery-item"
+                    onclick="openLightbox(4)">
+                    <img src="assets/playground-pneus-criancas-brincando.jpg" alt="Playground de pneus"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Diversão no Quintal</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-250 gallery-item"
+                    onclick="openLightbox(5)">
+                    <img src="assets/atividade-sensorial-agua-tinta-criancas.jpg" alt="Atividade sensorial água e tinta"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Atividade Sensorial</p>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-300 gallery-item"
+                    onclick="openLightbox(6)">
+                    <img src="assets/educacao-ambiental-grupo-criancas.jpg" alt="Educação ambiental"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Aprendendo na Roda</p>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-350 gallery-item"
+                    onclick="openLightbox(7)">
+                    <img src="assets/oficina-pintura-infantil-ao-ar-livre.jpg" alt="Pintura ao ar livre"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Pintura ao Ar Livre</p>
+                    </div>
+                </div>
+
+                <!-- More items can be added here following the pattern -->
+                <!-- Item 9 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-400 gallery-item"
+                    onclick="openLightbox(8)">
+                    <img src="assets/atividade-sensorial-agua-crianca.jpg" alt="Atividade sensorial com água"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Brincando com Água</p>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-450 gallery-item"
+                    onclick="openLightbox(9)">
+                    <img src="assets/atividade-sensorial-areia-rosa-grupo.jpg" alt="Areia rosa em grupo"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Areia Colorida</p>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-500 gallery-item"
+                    onclick="openLightbox(10)">
+                    <img src="assets/brincadeira-areia-recreacao-infantil.jpg" alt="Brincadeira na areia"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Caixa de Areia</p>
+                    </div>
+                </div>
+
+                <!-- Item 12 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-550 gallery-item"
+                    onclick="openLightbox(11)">
+                    <img src="assets/crianca-escalada-brinquedo-madeira.jpg" alt="Escalada em madeira"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Desafios Motores</p>
+                    </div>
+                </div>
+
+                <!-- Item 13 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-600 gallery-item"
+                    onclick="openLightbox(12)">
+                    <img src="assets/atividade-artistica-infantil-mesa.jpg" alt="Atividade artística"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Criatividade</p>
+                    </div>
+                </div>
+
+                <!-- Item 14 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-650 gallery-item"
+                    onclick="openLightbox(13)">
+                    <img src="assets/escada-madeira-flores-roxas-jardim.jpg" alt="Escada com flores"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Nosso Jardim</p>
+                    </div>
+                </div>
+
+                <!-- Item 15 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-700 gallery-item"
+                    onclick="openLightbox(14)">
+                    <img src="assets/decoracao-infantil-cata-vento-horta.jpg" alt="Cata-vento na horta"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Cata-ventos</p>
+                    </div>
+                </div>
+
+                <!-- Item 16 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] scroll-reveal delay-750 gallery-item"
+                    onclick="openLightbox(15)">
+                    <img src="assets/lagarto-iguana-jardim-reciclado.jpg" alt="Iguana no jardim"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p
+                            class="text-white font-bold font-display translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Fauna Local</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox justify-center items-center">
+        <!-- Close Button -->
+        <button class="absolute top-6 right-6 text-white hover:text-accent transition-colors z-50 p-2"
+            onclick="closeLightbox()">
+            <i class="fas fa-times text-4xl"></i>
+        </button>
+
+        <!-- Navigation Buttons -->
+        <button
+            class="hidden md:block absolute left-6 text-white hover:text-primary transition-colors z-40 p-4 bg-black/20 hover:bg-black/40 rounded-full"
+            onclick="prevImage()">
+            <i class="fas fa-chevron-left text-3xl"></i>
+        </button>
+        <button
+            class="hidden md:block absolute right-6 text-white hover:text-primary transition-colors z-40 p-4 bg-black/20 hover:bg-black/40 rounded-full"
+            onclick="nextImage()">
+            <i class="fas fa-chevron-right text-3xl"></i>
+        </button>
+
+        <div class="lightbox-content flex flex-col items-center justify-center p-4">
+            <img id="lightbox-img" src="" alt="" class="lightbox-image">
+            <p id="lightbox-caption" class="text-white mt-4 font-display text-xl tracking-wide font-medium text-center">
+            </p>
         </div>
     </div>
-    <footer class="bg-dark-blue py-12 text-light">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-lg mb-4">&copy; 2019 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
-            <p class="text-md mb-4">"A nossa mais elevada tarefa deve ser a de formar seres humanos livres que sejam
-                capazes de, por si mesmos, encontrar propósito e direção para suas vidas." - Rudolf Steiner</p>
-            <div class="flex justify-center space-x-6">
-                <a href="https://www.facebook.com/quintalagrias" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300"><i
-                        class="fab fa-facebook-f text-2xl"></i></a>
-                <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300"><i
-                        class="fab fa-instagram text-2xl"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                    class="text-light hover:text-secondary-yellow transition duration-300"><i
-                        class="fab fa-youtube text-2xl"></i></a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <img src="assets/logo.png" alt="Logo"
+                            class="h-12 w-12 object-contain brightness-0 invert opacity-80">
+                        <span class="font-display font-bold text-2xl">Quintal Agrias</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+                        Escola Viva. Um espaço dedicado ao desenvolvimento integral e feliz de cada criança.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Navegação</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="pedagogia.html" class="hover:text-white transition-colors">Nossa Pedagogia</a></li>
+                        <li><a href="dia-a-dia.html" class="hover:text-white transition-colors">Dia a Dia</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-right">
+                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Siga-nos</h4>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/quintalagrias" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+                <p>&copy; 2024 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script>
-        const galleryImages = [{ src: 'assets/criancas-subindo-arvore-quintal.jpg', alt: 'Crianças subindo em árvore' }, { src: 'assets/criancas-plantando-mudas-terra.jpg', alt: 'Crianças plantando mudas' }, { src: 'assets/atividade-pintura-maos-crianca.jpg', alt: 'Pintura com as mãos' }, { src: 'assets/criancas-pintando-papel-amarelo-sala.jpg', alt: 'Pintando papel amarelo' }, { src: 'assets/playground-pneus-criancas-brincando.jpg', alt: 'Playground de pneus' }, { src: 'assets/atividade-sensorial-agua-tinta-criancas.jpg', alt: 'Atividade sensorial água e tinta' }, { src: 'assets/educacao-ambiental-grupo-criancas.jpg', alt: 'Educação ambiental' }, { src: 'assets/oficina-pintura-infantil-ao-ar-livre.jpg', alt: 'Pintura ao ar livre' }, { src: 'assets/atividade-sensorial-agua-crianca.jpg', alt: 'Atividade sensorial com água' }, { src: 'assets/atividade-sensorial-areia-rosa-grupo.jpg', alt: 'Areia rosa em grupo' }, { src: 'assets/brincadeira-areia-recreacao-infantil.jpg', alt: 'Brincadeira na areia' }, { src: 'assets/crianca-escalada-brinquedo-madeira.jpg', alt: 'Escalada em madeira' }, { src: 'assets/atividade-artistica-infantil-mesa.jpg', alt: 'Atividade artística' }, { src: 'assets/escada-madeira-flores-roxas-jardim.jpg', alt: 'Escada com flores' }, { src: 'assets/decoracao-infantil-cata-vento-horta.jpg', alt: 'Cata-vento na horta' }, { src: 'assets/lagarto-iguana-jardim-reciclado.jpg', alt: 'Iguana no jardim' }];
+        // Menu Mobile
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        // Scroll Reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        });
+
+        // Lightbox Logic
+        const galleryImages = [
+            { src: 'assets/criancas-subindo-arvore-quintal.jpg', alt: 'Aventura na Árvore' },
+            { src: 'assets/criancas-plantando-mudas-terra.jpg', alt: 'Plantando o Futuro' },
+            { src: 'assets/atividade-pintura-maos-crianca.jpg', alt: 'Arte com as Mãos' },
+            { src: 'assets/criancas-pintando-papel-amarelo-sala.jpg', alt: 'Expressão Artística' },
+            { src: 'assets/playground-pneus-criancas-brincando.jpg', alt: 'Diversão no Quintal' },
+            { src: 'assets/atividade-sensorial-agua-tinta-criancas.jpg', alt: 'Atividade Sensorial' },
+            { src: 'assets/educacao-ambiental-grupo-criancas.jpg', alt: 'Aprendendo na Roda' },
+            { src: 'assets/oficina-pintura-infantil-ao-ar-livre.jpg', alt: 'Pintura ao Ar Livre' },
+            { src: 'assets/atividade-sensorial-agua-crianca.jpg', alt: 'Brincando com Água' },
+            { src: 'assets/atividade-sensorial-areia-rosa-grupo.jpg', alt: 'Areia Colorida' },
+            { src: 'assets/brincadeira-areia-recreacao-infantil.jpg', alt: 'Caixa de Areia' },
+            { src: 'assets/crianca-escalada-brinquedo-madeira.jpg', alt: 'Desafios Motores' },
+            { src: 'assets/atividade-artistica-infantil-mesa.jpg', alt: 'Criatividade' },
+            { src: 'assets/escada-madeira-flores-roxas-jardim.jpg', alt: 'Nosso Jardim' },
+            { src: 'assets/decoracao-infantil-cata-vento-horta.jpg', alt: 'Cata-ventos' },
+            { src: 'assets/lagarto-iguana-jardim-reciclado.jpg', alt: 'Fauna Local' }
+        ];
+
         let currentImageIndex = 0;
-        const lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightbox-img'), lightboxCaption = document.getElementById('lightbox-caption');
-        function openLightbox(i) { currentImageIndex = i; const img = galleryImages[i]; lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightboxCaption.textContent = img.alt; lightbox.classList.add('active'); document.body.style.overflow = 'hidden' }
-        function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = 'auto' }
-        function nextImage() { currentImageIndex = (currentImageIndex + 1) % galleryImages.length; const img = galleryImages[currentImageIndex]; lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightboxCaption.textContent = img.alt }
-        function prevImage() { currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length; const img = galleryImages[currentImageIndex]; lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightboxCaption.textContent = img.alt }
-        document.querySelectorAll('.gallery-item').forEach((item, i) => { item.addEventListener('click', () => openLightbox(i)) });
-        document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-        document.querySelector('.lightbox-next').addEventListener('click', nextImage);
-        document.querySelector('.lightbox-prev').addEventListener('click', prevImage);
-        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox() });
-        document.addEventListener('keydown', e => { if (lightbox.classList.contains('active')) { if (e.key === 'Escape') closeLightbox(); else if (e.key === 'ArrowRight') nextImage(); else if (e.key === 'ArrowLeft') prevImage() } });
-        const mobileMenuButton = document.getElementById('mobile-menu-button'), mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-        document.addEventListener('DOMContentLoaded', () => { const els = document.querySelectorAll('.scroll-reveal'); const obs = new IntersectionObserver((entries, obs) => { entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('is-visible'), parseInt(e.target.dataset.delay) || 0); obs.unobserve(e.target) } }) }, { threshold: .1 }); els.forEach(el => obs.observe(el)) });
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const img = galleryImages[currentImageIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = img.alt;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightbox();
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Close on click outside
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 
