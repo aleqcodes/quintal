@@ -107,6 +107,10 @@ class AppFooter extends HTMLElement {
                 </div>
                 <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
                     <p>&copy; 2024 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
+                    <p class="mt-2 flex items-center justify-center gap-1">
+                        Feito com <span class="text-blue-500 text-sm">💙</span> pelo 
+                        <a href="https://www.instagram.com/aleqcodes/" target="_blank" class="hover:text-blue-400 transition-colors font-medium">@aleqcodes</a>
+                    </p>
                 </div>
             </div>
         </footer>
