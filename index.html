@@ -41,57 +41,8 @@
 <body class="bg-light text-dark font-sans antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <img src="assets/logo.png" alt="Logo Quintal Agrias"
-                    class="h-10 w-10 object-contain transition-transform group-hover:rotate-12">
-                <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl text-primary leading-none">Quintal Agrias</span>
-                    <span class="text-xs text-gray-500 font-medium tracking-wide">Escola Viva</span>
-                </div>
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="sobre.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Sobre</a>
-                <a href="pedagogia.html"
-                    class="text-gray-600 hover:text-primary font-medium transition-colors">Pedagogia</a>
-                <a href="dia-a-dia.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dia a
-                    Dia</a>
-                <a href="galeria.html"
-                    class="text-gray-600 hover:text-primary font-medium transition-colors">Galeria</a>
-                <a href="contato.html"
-                    class="px-5 py-2 rounded-full bg-accent text-white font-bold shadow-md hover:bg-accent-dark transition-all hover:-translate-y-0.5">
-                    Fale Conosco
-                </a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
-            <div class="flex flex-col p-4 gap-4">
-                <a href="sobre.html"
-                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Sobre</a>
-                <a href="pedagogia.html"
-                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Pedagogia</a>
-                <a href="dia-a-dia.html"
-                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Dia a Dia</a>
-                <a href="galeria.html"
-                    class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-50">Galeria</a>
-                <a href="contato.html"
-                    class="w-full text-center px-5 py-3 rounded-xl bg-accent text-white font-bold shadow-sm">
-                    Fale Conosco link
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <app-header active="home"></app-header>
 
     <!-- Hero Section -->
     <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
@@ -288,65 +239,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
-                <!-- Brand -->
-                <div class="text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
-                        <img src="assets/logo.png" alt="Logo" class="h-12 w-12 object-contain  opacity-80">
-                        <span class="font-display font-bold text-2xl">Quintal Agrias</span>
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-                        Escola Viva. Um espaço dedicado ao desenvolvimento integral e feliz de cada criança.
-                    </p>
-                </div>
-
-                <!-- Links -->
-                <div class="text-center">
-                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Navegação</h4>
-                    <ul class="space-y-3 text-gray-300 text-sm">
-                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
-                        <li><a href="pedagogia.html" class="hover:text-white transition-colors">Nossa Pedagogia</a></li>
-                        <li><a href="dia-a-dia.html" class="hover:text-white transition-colors">Dia a Dia</a></li>
-                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
-                    </ul>
-                </div>
-
-                <!-- Social -->
-                <div class="text-center md:text-right">
-                    <h4 class="font-display font-bold text-lg mb-6 text-secondary">Siga-nos</h4>
-                    <div class="flex justify-center md:justify-end gap-4">
-                        <a href="https://www.instagram.com/quintalagriasescolaviva" target="_blank"
-                            aria-label="Instagram"
-                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all">
-                            <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.facebook.com/quintalagrias" target="_blank" aria-label="Facebook"
-                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all">
-                            <i class="fab fa-facebook-f text-xl" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
-                <p>&copy; 2026 Quintal Agrias - Escola Viva. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <app-footer></app-footer>
 
     <!-- Scripts -->
+    <script src="js/components.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Scroll Reveal Animation
+        // Scroll Reveal Animation (kept, local specific)
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
