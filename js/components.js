@@ -15,6 +15,7 @@ class AppHeader extends HTMLElement {
                 </a>
 
                 <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="${this.getLinkClass(activePage, 'home')}">Início</a>
                     <a href="sobre.html" class="${this.getLinkClass(activePage, 'sobre')}">Sobre</a>
                     <a href="pedagogia.html" class="${this.getLinkClass(activePage, 'pedagogia')}">Pedagogia</a>
                     <a href="dia-a-dia.html" class="${this.getLinkClass(activePage, 'dia-a-dia')}">Dia a Dia</a>
@@ -31,6 +32,7 @@ class AppHeader extends HTMLElement {
             <div id="mobile-menu"
                 class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
                 <div class="flex flex-col p-4 gap-4">
+                    <a href="index.html" class="${this.getMobileLinkClass(activePage, 'home')}">Início</a>
                     <a href="sobre.html" class="${this.getMobileLinkClass(activePage, 'sobre')}">Sobre</a>
                     <a href="pedagogia.html" class="${this.getMobileLinkClass(activePage, 'pedagogia')}">Pedagogia</a>
                     <a href="dia-a-dia.html" class="${this.getMobileLinkClass(activePage, 'dia-a-dia')}">Dia a Dia</a>
