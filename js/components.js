@@ -31,7 +31,7 @@ class AppHeader extends HTMLElement {
 
             <div id="mobile-menu"
                 class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
-                <div class="flex flex-col p-4 gap-4">
+                <div class="flex flex-col p-4 gap-4 text-center">
                     <a href="index.html" class="${this.getMobileLinkClass(activePage, 'home')}">Início</a>
                     <a href="sobre.html" class="${this.getMobileLinkClass(activePage, 'sobre')}">Sobre</a>
                     <a href="pedagogia.html" class="${this.getMobileLinkClass(activePage, 'pedagogia')}">Pedagogia</a>
@@ -60,7 +60,7 @@ class AppHeader extends HTMLElement {
     }
 
     getMobileLinkClass(activePage, pageName) {
-        const baseClass = "font-medium py-2 border-b border-gray-50";
+        const baseClass = "font-medium py-2 border-b border-gray-50 block w-full";
         const inactiveClass = "text-gray-700 hover:text-primary";
         const activeClass = "text-primary font-bold";
         return activePage === pageName ? `${baseClass} ${activeClass}` : `${baseClass} ${inactiveClass}`;
