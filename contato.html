@@ -209,23 +209,47 @@
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
 
+            // Show loading state
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             btn.disabled = true;
 
-            // Simulate sending
+            // Get values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Format message for WhatsApp
+            const text = `Olá, venho do site! \n\nMeu nome é: ${name}. \nEmail: ${email}. \nContato: ${phone}. \nMensagem: ${message}`;
+            const encodedText = encodeURIComponent(text);
+            const phoneNumber = '5592982559539';
+
+            // Simulate a brief delay for UX
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            msgDiv.classList.remove('hidden');
-            msgDiv.className = 'mt-4 text-center p-3 rounded-xl bg-green-100 text-green-700 text-sm font-bold animate-pulse';
-            msgDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Mensagem enviada com sucesso!';
+            // Redirect
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
 
+            // Show success message
+            msgDiv.classList.remove('hidden');
+            msgDiv.className = 'mt-4 text-center p-4 rounded-xl bg-green-100 text-green-700 text-sm font-bold shadow-sm';
+            msgDiv.innerHTML = `
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-xl"><i class="fas fa-check-circle text-green-600"></i></span>
+                    <span>Tudo certo! Abrimos o WhatsApp para você enviar a mensagem.</span>
+                    <span class="text-xs font-normal opacity-75">Caso não tenha aberto, verifique se o bloqueador de pop-ups está ativo.</span>
+                </div>
+            `;
+
+            // Reset form
             form.reset();
             btn.innerHTML = originalText;
             btn.disabled = false;
 
+            // Hide after 10 seconds (enough time to come back)
             setTimeout(() => {
                 msgDiv.classList.add('hidden');
-            }, 5000);
+            }, 10000);
         });
     </script>
 </body>
